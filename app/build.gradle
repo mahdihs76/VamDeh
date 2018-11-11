@@ -41,3 +41,8 @@ dependencies {
     implementation 'com.akexorcist:RoundCornerProgressBar:2.0.3'
     testImplementation 'junit:junit:4.12'
 }
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
+}

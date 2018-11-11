@@ -15,14 +15,9 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initCircularMenu()
-        profile_image.onClick { startLoansFragment() }
+        profile_image.onClick { gotoProfile() }
     }
 
-    private fun initCircularMenu() = enumValues<MenuItem>().forEach { circularLayout.addView(generateCircularItem(it)) }
-
-    private fun startLoansFragment() {
-        gotoLoanRequest()
-    }
-
+    private fun initCircularMenu() = enumValues<MenuItem>().forEach {circularLayout.addView(generateCircularItem(it))}
 
 }
