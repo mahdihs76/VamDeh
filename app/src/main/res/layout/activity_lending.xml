@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@mipmap/background"
+    tools:context=".LendingFragment">
+
+    <TextView
+        android:id="@+id/loanAmountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/loanAmountSlider"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@id/loanAmountSlider"
+        android:layout_marginTop="180dp"
+        android:paddingEnd="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/loanAmountLabel"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/seekBarAmountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/loanAmountSlider"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@id/loanAmountSlider"
+        android:layout_marginTop="180dp"
+        android:paddingLeft="16dp"
+        android:paddingStart="16dp"
+        android:text="500 toman"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        tools:ignore="HardcodedText,RtlSymmetry" />
+
+
+    <com.github.florent37.androidslidr.Slidr
+        android:id="@+id/loanAmountSlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loanAmountTextView"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        app:slidr_backgroundColor="@android:color/white"
+        app:slidr_draw_bubble="false"
+        app:slidr_region_leftColor="@color/seekBar"
+        app:slidr_textTop_size="0sp" />
+
+    <Button
+        android:id="@+id/submitLendingButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginRight="64dp"
+        android:background="@drawable/submit_button_background"
+        android:gravity="center_horizontal"
+        android:minHeight="40dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="@string/lending"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
+
+</RelativeLayout>

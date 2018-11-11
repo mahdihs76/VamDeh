@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Vamdeh</string>
+    <string name="submit">تایید</string>
+    <string name="phone_number">شماره همراه</string>
+    <string name="installment_page">صفحه اقساط</string>
+    <string name="certified">اعتماد دارم</string>
+    <string name="trusted">معتمدها</string>
+    <string name="apply_loan">دریافت وام</string>
+    <string name="lend_loan">ارائه وام</string>
+
+    <string name="action_overflow_menu">overflow menu</string>
+    <string name="lending">ارائه وام</string>
+    <string name="loanAmountLabel">میزان وام</string>
+    <string name="paymentTime">مدت پرداخت</string>
+    <string name="loanRequest">درخواست وام</string>
+    <string name="monthlyPayment">میزان قسط ماهیانه</string>
+    <string name="paymentAmount">۸۰ تومان</string>
+    <string name="paymentDescription">توضیحات</string>
+    <string name="loanAmount">%s تومان</string>
+
+    <string name="nameHint">نام و نام خانوادگی</string>
+    <string name="phoneNumberHint">شماره تماس</string>
+    <string name="creditNumberHint">شماره حساب</string>
+    <string name="emailHint">ایمیل</string>
+    <string name="addressHint">آدرس</string>
+    <string name="cancel">انصراف</string>
+    <string name="currentPayment">قسط های جاری</string>
+    <string name="paidPayment">قسط های گذشته</string>
+    <string name="paymentDateLabel">زمان قسط</string>
+    <string name="pay">پرداخت</string>
+    <string name="paid">تصویه شد</string>
+</resources>

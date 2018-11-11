@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    tools:context=".LoansFragment">
+
+    <TextView
+        android:id="@+id/currentPaymentLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/currentPayment"
+        android:textColor="@android:color/white" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignTop="@id/currentPaymentLabelTextView"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="11dp"
+        android:layout_toLeftOf="@id/currentPaymentLabelTextView"
+        android:layout_toStartOf="@id/currentPaymentLabelTextView"
+        android:src="@drawable/horizontal_line"
+        android:contentDescription="currentPaymentLabelTextView"
+        tools:ignore="HardcodedText" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/currentLoanLayout"
+        android:layout_alignBottom="@id/currentLoanLayout"
+        android:layout_alignEnd="@id/currentLoanLayout"
+        android:layout_alignLeft="@id/currentLoanLayout"
+        android:layout_alignRight="@id/currentLoanLayout"
+        android:layout_alignStart="@id/currentLoanLayout"
+        android:layout_alignTop="@id/currentLoanLayout"
+        android:layout_marginBottom="-8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="-8dp"
+        android:background="@drawable/current_loan_background1" />
+
+    <RelativeLayout
+        android:id="@+id/currentLoanLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/currentPaymentLabelTextView"
+        android:layout_marginEnd="32dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/current_loan_background2">
+
+        <TextView
+            android:id="@+id/paymentDateLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/paymentDateLabel"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/paymentDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/paymentDateLabelTextView"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_toLeftOf="@id/paymentDateLabelTextView"
+            android:layout_toStartOf="@id/paymentDateLabelTextView"
+            android:text="۱۳۹۷/۰۸/۱۱"
+            android:textColor="@android:color/black"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/payButton"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/pay_button_background"
+            android:text="@string/pay"
+            tools:ignore="RelativeOverlap" />
+
+
+        <com.akexorcist.roundcornerprogressbar.TextRoundCornerProgressBar
+            android:id="@+id/loanProgressBar"
+            android:layout_marginTop="16dp"
+            android:layout_below="@id/payButton"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            app:rcProgressColor="@color/progressColor"
+            app:rcBackgroundColor="@android:color/white"
+            app:rcProgress="100"
+            app:rcMax="300"
+            android:layout_height="20dp"/>
+
+        <TextView
+            android:id="@+id/paymentPerMonthLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/loanProgressBar"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="16dp"
+            android:text="میزان برگشت در هر ماه"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/monthlyPaymentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/paymentPerMonthLabelTextView"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_toLeftOf="@id/paymentPerMonthLabelTextView"
+            android:layout_toStartOf="@id/paymentPerMonthLabelTextView"
+            android:text="۵۰ تومان"
+            android:textSize="16sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/lenderLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/monthlyPaymentTextView"
+            android:layout_marginBottom="8sp"
+            android:layout_marginEnd="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="16dp"
+            android:text="وام دهتده:"
+            android:textSize="10sp"
+            tools:ignore="HardcodedText,SmallSp" />
+
+        <TextView
+            android:id="@+id/lenderNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/lenderLabelTextView"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_toLeftOf="@id/lenderLabelTextView"
+            android:layout_toStartOf="@id/lenderLabelTextView"
+            android:text="علی معتمد"
+            android:textSize="10sp"
+            tools:ignore="HardcodedText,SmallSp" />
+
+        <TextView
+            android:id="@+id/finalPaymentDateLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/lenderNameTextView"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_toLeftOf="@id/lenderNameTextView"
+            android:layout_toStartOf="@id/lenderNameTextView"
+            android:text="زمان نهایی تصفیه:"
+            android:textSize="10sp"
+            tools:ignore="HardcodedText,SmallSp" />
+
+        <TextView
+            android:id="@+id/finalPaymentDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/finalPaymentDateLabelTextView"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_toLeftOf="@id/finalPaymentDateLabelTextView"
+            android:layout_toStartOf="@id/finalPaymentDateLabelTextView"
+            android:text="۱۳۹۷/۰۸/۱۱"
+            android:textSize="10sp"
+            tools:ignore="HardcodedText,SmallSp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/paidPaymentLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/currentLoanLayout"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/paidPayment"
+        android:textColor="@android:color/white" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignTop="@id/paidPaymentLabelTextView"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="11dp"
+        android:layout_toLeftOf="@id/paidPaymentLabelTextView"
+        android:layout_toStartOf="@id/paidPaymentLabelTextView"
+        android:src="@drawable/horizontal_line"
+        android:contentDescription="paidPaymentLabelTextView"
+        tools:ignore="HardcodedText" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/paidLoanLayout"
+        android:layout_alignBottom="@id/paidLoanLayout"
+        android:layout_alignEnd="@id/paidLoanLayout"
+        android:layout_alignLeft="@id/paidLoanLayout"
+        android:layout_alignRight="@id/paidLoanLayout"
+        android:layout_alignStart="@id/paidLoanLayout"
+        android:layout_alignTop="@id/paidLoanLayout"
+        android:layout_marginBottom="-8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="-8dp"
+        android:background="@drawable/current_loan_background1" />
+
+    <RelativeLayout
+        android:id="@+id/paidLoanLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/paidPaymentLabelTextView"
+        android:layout_marginEnd="32dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/current_loan_background2">
+
+        <TextView
+            android:id="@+id/lenderLabelTextView_paid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@id/paidLoanProgressBar"
+            android:layout_marginTop="16dp"
+            android:textSize="12sp"
+            android:text="وام دهنده"
+            android:textColor="@android:color/black"
+            android:layout_alignEnd="@id/paidLoanProgressBar"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/lenderNameTextView_paid"
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/lenderLabelTextView_paid"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_toLeftOf="@id/lenderLabelTextView_paid"
+            android:layout_toStartOf="@id/lenderLabelTextView_paid"
+            android:text="علی معتمد"
+            android:textColor="@android:color/black"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/finalPaymentDateLabelTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/paidLoanProgressBar"
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/lenderLabelTextView_paid"
+            android:textSize="12sp"
+            android:text="زمان تصفیه نهایی"
+            android:textColor="@android:color/black"
+            android:layout_alignEnd="@id/paidLoanProgressBar"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/finalPaymentDateTextView2"
+            android:layout_width="wrap_content"
+            android:textSize="12sp"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/finalPaymentDateLabelTextView2"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_toLeftOf="@id/finalPaymentDateLabelTextView2"
+            android:layout_toStartOf="@id/finalPaymentDateLabelTextView2"
+            android:text="۱۳۹۷/۰۸/۱۱"
+            android:textColor="@android:color/black"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/paidTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/pay_button_background"
+            android:text="@string/paid" />
+
+
+        <com.akexorcist.roundcornerprogressbar.TextRoundCornerProgressBar
+            android:id="@+id/paidLoanProgressBar"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_below="@id/finalPaymentDateLabelTextView2"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            app:rcProgressColor="@color/progressColor"
+            app:rcBackgroundColor="@android:color/white"
+            app:rcProgress="100"
+            app:rcMax="300"
+            android:layout_height="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/paidLoanProgressBar"
+            android:text="۳۰۰ تومان"
+            android:textColor="@android:color/black"
+            android:layout_alignBottom="@id/paidLoanProgressBar"
+            android:layout_alignRight="@id/paidLoanProgressBar"
+            android:layout_alignEnd="@id/paidLoanProgressBar"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/paidLoanProgressBar"
+            android:text="۱۰۰ تومان"
+            android:textColor="@android:color/black"
+            android:layout_alignBottom="@id/paidLoanProgressBar"
+            android:layout_marginLeft="32dp"
+            android:layout_alignLeft="@id/paidLoanProgressBar"
+            android:layout_alignStart="@id/paidLoanProgressBar"
+            android:layout_marginStart="60dp"
+            tools:ignore="HardcodedText" />
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    tools:context=".ProfileFragment">
+
+    <ImageView
+        android:id="@+id/profileImageView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:contentDescription="profileImageView"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:id="@+id/plusImageView"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignBottom="@id/profileImageView"
+        android:layout_alignEnd="@id/profileImageView"
+        android:layout_alignRight="@id/profileImageView"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/add_background"
+        android:contentDescription="plusImageView"
+        android:src="@mipmap/ic_launcher"
+        tools:ignore="HardcodedText" />
+
+
+    <TextView
+        android:id="@+id/nameHintTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/nameEditText"
+        android:layout_alignRight="@id/nameEditText"
+        android:layout_alignTop="@id/nameEditText"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="-8dp"
+        android:text="@string/nameHint"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profileImageView"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/edit_text_background"
+        android:ellipsize="end"
+        android:hint="@string/nameHint"
+        android:inputType="text"
+        android:lines="1"
+        android:minHeight="48dp"
+        android:paddingEnd="30dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="30dp"
+        android:paddingStart="20dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/white" />
+
+    <TextView
+        android:id="@+id/phoneNumberHintTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/phoneNumberEditText"
+        android:layout_alignRight="@id/phoneNumberEditText"
+        android:layout_alignTop="@id/phoneNumberEditText"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="-8dp"
+        android:text="@string/phoneNumberHint"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/phoneNumberEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameEditText"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_text_background"
+        android:ellipsize="end"
+        android:hint="@string/phoneNumberHint"
+        android:inputType="phone"
+        android:lines="1"
+        android:minHeight="48dp"
+        android:paddingEnd="30dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="30dp"
+        android:paddingStart="20dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/white" />
+
+    <TextView
+        android:id="@+id/creditNumberHintTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/creditNumberEditText"
+        android:layout_alignRight="@id/creditNumberEditText"
+        android:layout_alignTop="@id/creditNumberEditText"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="-8dp"
+        android:text="@string/creditNumberHint"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/creditNumberEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phoneNumberEditText"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_text_background"
+        android:ellipsize="end"
+        android:hint="@string/creditNumberHint"
+        android:inputType="number"
+        android:lines="1"
+        android:minHeight="48dp"
+        android:paddingEnd="30dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="30dp"
+        android:paddingStart="20dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/white" />
+
+
+    <TextView
+        android:id="@+id/emailHintTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/emailEditText"
+        android:layout_alignRight="@id/emailEditText"
+        android:layout_alignTop="@id/emailEditText"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="-8dp"
+        android:text="@string/emailHint"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/creditNumberEditText"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_text_background"
+        android:ellipsize="end"
+        android:hint="@string/emailHint"
+        android:inputType="textEmailAddress"
+        android:lines="1"
+        android:minHeight="48dp"
+        android:paddingEnd="30dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="30dp"
+        android:paddingStart="20dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/white" />
+
+<TextView
+        android:id="@+id/addressHintTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/addressEditText"
+        android:layout_alignRight="@id/addressEditText"
+        android:layout_alignTop="@id/addressEditText"
+        android:layout_marginEnd="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="-8dp"
+        android:text="@string/addressHint"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/addressEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailEditText"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_text_background"
+        android:ellipsize="end"
+        android:paddingTop="8dp"
+        android:gravity="top"
+        android:hint="@string/addressHint"
+        android:inputType="textPostalAddress|textMultiLine"
+        android:lines="4"
+        android:minHeight="100dp"
+        android:paddingEnd="30dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="30dp"
+        android:paddingStart="20dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/white" />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:id="@+id/profileSubmitButton"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:text="@string/submit"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        android:background="@drawable/profile_submit_background"
+        android:layout_alignRight="@id/addressEditText"
+        android:layout_alignEnd="@id/addressEditText" />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:id="@+id/profileCancelButton"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:text="@string/cancel"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        android:background="@drawable/profile_cancel_background"
+        android:layout_alignLeft="@id/addressEditText"
+        android:layout_alignStart="@id/addressEditText" />
+
+</RelativeLayout>

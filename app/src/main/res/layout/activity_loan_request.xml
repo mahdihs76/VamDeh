@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    tools:context=".LoanRequestFragment">
+
+    <TextView
+        android:id="@+id/loanAmountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/loanAmountSlider"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@id/loanAmountSlider"
+        android:layout_marginTop="24dp"
+        android:paddingEnd="16dp"
+        android:paddingRight="16dp"
+        android:text="@string/loanAmountLabel"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/seekBarAmountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/loanAmountSlider"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@id/loanAmountSlider"
+        android:layout_marginTop="24dp"
+        android:paddingLeft="16dp"
+        android:paddingStart="16dp"
+        android:text="@string/loanAmount"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        tools:ignore="RtlSymmetry" />
+
+    <com.github.florent37.androidslidr.Slidr
+        android:id="@+id/loanAmountSlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loanAmountTextView"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
+        app:slidr_backgroundColor="@android:color/white"
+        app:slidr_draw_bubble="false"
+        app:slidr_region_leftColor="@color/seekBar"
+        app:slidr_textTop_size="0sp" />
+
+    <TextView
+        android:id="@+id/paymentTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/loanAmountSlider"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/paymentTime"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:id="@+id/paymentTimeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/paymentTimeTextView"
+        android:layout_marginTop="24dp"
+        android:gravity="center_horizontal"
+        android:paddingLeft="36dp"
+        android:paddingRight="36dp">
+
+        <Button
+            android:id="@+id/_12monthsPaymentButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="@drawable/payment_button_background"
+            android:text="۱۲ ماه"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            tools:ignore="ButtonStyle,HardcodedText" />
+
+        <Button
+            android:id="@+id/_6monthsPaymentButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/payment_button_background"
+            android:text="۶ ماه"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            tools:ignore="ButtonStyle,HardcodedText" />
+
+        <Button
+            android:id="@+id/_3monthsPaymentButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/payment_button_background"
+            android:text="۳ ماه"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            tools:ignore="ButtonStyle,HardcodedText" />
+
+        <Button
+            android:id="@+id/otherPaymentButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/payment_button_background"
+            android:text="سایر"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            tools:ignore="ButtonStyle,HardcodedText" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/monthlyPaymentLabelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/paymentTimeLayout"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/monthlyPayment"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/monthlyPaymentAmountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/paymentTimeLayout"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/paymentAmount"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/paymentDescriptionEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/monthlyPaymentLabelTextView"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="32dp"
+        android:hint="@string/paymentDescription"
+        android:inputType="textMultiLine"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
+        android:theme="@style/Theme.App.Base" />
+
+    <Button
+        android:id="@+id/submitLendingButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginRight="64dp"
+        android:background="@drawable/submit_button_background"
+        android:gravity="center"
+        android:minHeight="48dp"
+        android:text="@string/loanRequest"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
+
+</RelativeLayout>

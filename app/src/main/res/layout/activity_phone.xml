@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background"
+    tools:context="ir.sharif.vamdeh.activity.PhoneActivity">
+
+    <EditText
+        android:id="@+id/phone_number"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_above="@id/submit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/edit_text_bg"
+        android:gravity="center"
+        android:hint="@string/phone_number"
+        android:inputType="phone"
+        android:textColor="#000000"
+        android:maxLength="11"
+        android:textColorHint="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ir.sharif.vamdeh.view.button.UnoSumbitButton
+        android:id="@+id/submit"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp" />
+
+</RelativeLayout>
