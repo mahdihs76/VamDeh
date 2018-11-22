@@ -8,6 +8,15 @@ import ir.sharif.vamdeh.helper.*
 import ir.sharif.vamdeh.utils.generateCircularItem
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import java.nio.file.Files.size
+import android.content.pm.PackageManager
+import android.content.pm.ResolveInfo
+import android.content.Intent
+import java.nio.file.Files.size
+
+
+
+
 
 class MainActivity : BaseActivity() {
 

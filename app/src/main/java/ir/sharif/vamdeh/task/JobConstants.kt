@@ -1,0 +1,14 @@
+package ir.sharif.vamdeh.task
+
+/**
+ * Created by mahdihs76 on 11/22/18.
+ */
+object JobConstants {
+    // TAGS ////////////////////////////////////////////////////////////////////
+
+    val REGISTER_TAG = "register_tag"
+
+    // REGISTER //////////////////////////////////////////////////////////////////
+
+    val PHONE_NUMBER = "phone_number"
+}

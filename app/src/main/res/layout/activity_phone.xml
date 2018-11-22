@@ -7,7 +7,7 @@
     tools:context="ir.sharif.vamdeh.activity.PhoneActivity">
 
     <EditText
-        android:id="@+id/phone_number"
+        android:id="@+id/phoneNumber"
         android:layout_width="220dp"
         android:layout_height="50dp"
         android:layout_above="@id/submit"

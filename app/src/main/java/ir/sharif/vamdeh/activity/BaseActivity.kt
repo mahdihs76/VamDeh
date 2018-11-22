@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import ir.sharif.vamdeh.R
+import org.greenrobot.eventbus.EventBus
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
@@ -24,7 +25,7 @@ open class BaseActivity : AppCompatActivity() {
                 .build()
         )
 
-
-    override fun attachBaseContext(newBase: Context) = super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
+    override fun attachBaseContext(newBase: Context) =
+            super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
 
 }

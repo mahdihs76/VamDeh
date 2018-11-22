@@ -5,9 +5,10 @@ import ir.sharif.vamdeh.R
 import ir.sharif.vamdeh.helper.gotoMainPage
 import ir.sharif.vamdeh.view.button.unoSumbitButton
 import ir.sharif.vamdeh.view.edittext.unoOneDigitEditText
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
-
 
 class ActivationActivity : BaseActivity() {
 
