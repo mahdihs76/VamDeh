@@ -4,6 +4,7 @@ import android.app.Application
 import com.evernote.android.job.JobManager
 import ir.sharif.vamdeh.ApplicationContext
 import ir.sharif.vamdeh.task.MyJobCreator
+import ir.sharif.vamdeh.webservices.pref.WebservicePrefSetting
 
 /**
  *
@@ -14,6 +15,7 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         ApplicationContext.initialize(this)
+        WebservicePrefSetting.getInstance(ApplicationContext.context)
         JobManager.create(this).addJobCreator(MyJobCreator())
     }
 }

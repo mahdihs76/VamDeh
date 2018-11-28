@@ -3,24 +3,24 @@ package ir.sharif.vamdeh.webservices.pref;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-public class WebservicePrefSeting {
+public class WebservicePrefSetting {
 
-    private static WebservicePrefSeting instance;
+    private static WebservicePrefSetting instance;
 
     private SharedPreferences sharedPreferences;
 
-    private WebservicePrefSeting(Context context) {
+    private WebservicePrefSetting(Context context) {
         sharedPreferences = context.getSharedPreferences(PrefCostance.SHARED_NAME, Context.MODE_PRIVATE);
     }
 
-    public static WebservicePrefSeting getInstance(Context context) {
+    public static WebservicePrefSetting getInstance(Context context) {
         if (instance == null) {
-            instance = new WebservicePrefSeting(context);
+            instance = new WebservicePrefSetting(context);
         }
         return instance;
     }
 
-    public static WebservicePrefSeting getInstanceWithoutContext() {
+    public static WebservicePrefSetting getInstanceWithoutContext() {
         if (instance == null) {
             throw new RuntimeException("Please set context first");
         }

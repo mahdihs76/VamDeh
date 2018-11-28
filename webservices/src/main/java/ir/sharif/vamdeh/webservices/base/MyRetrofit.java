@@ -12,7 +12,7 @@ import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import ir.sharif.vamdeh.webservices.pref.WebservicePrefSeting;
+import ir.sharif.vamdeh.webservices.pref.WebservicePrefSetting;
 
 import static ir.sharif.vamdeh.webservices.base.WebserviceAdresses.BASE_URL;
 
@@ -66,7 +66,7 @@ public class MyRetrofit {
     }
 
     private void addAuthHeader(OkHttpClient.Builder client) {
-        if (WebservicePrefSeting.getInstanceWithoutContext().isRegister()) {
+        if (WebservicePrefSetting.getInstanceWithoutContext().isRegister()) {
             client.addInterceptor(new Interceptor() {
                 @Override
                 public Response intercept(Interceptor.Chain chain) throws IOException {
@@ -74,7 +74,7 @@ public class MyRetrofit {
 
                     Request request = original.newBuilder()
 
-                            .addHeader("Authorization", getTocken())
+                            .addHeader("Authorization", getToken())
                             .build();
 
                     return chain.proceed(request);
@@ -83,9 +83,8 @@ public class MyRetrofit {
         }
     }
 
-
-    private String getTocken() {
-        String key = WebservicePrefSeting.getInstanceWithoutContext().getKey();
+    private String getToken() {
+        String key = WebservicePrefSetting.getInstanceWithoutContext().getKey();
         return "token " + key;
     }
 

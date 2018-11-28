@@ -17,7 +17,6 @@ public class RegistrationProcess extends BaseProcess {
 
     @Override
     public RegistrationResponse process() throws IOException, WebserviceException {
-
         Call<RegistrationResponse> register = MyRetrofit.getInstance().getWebserviceUrls().register(request);
         return send(register);
     }

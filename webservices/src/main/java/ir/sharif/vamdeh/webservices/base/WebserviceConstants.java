@@ -1,6 +1,6 @@
 package ir.sharif.vamdeh.webservices.base;
 
-public class WebserviceConstance {
+public class WebserviceConstants {
 
     public static final String USERNAME = "username";
     public static final String PASSWORD1 = "password1";

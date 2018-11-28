@@ -5,7 +5,7 @@ import android.content.Context;
 import java.io.IOException;
 
 import ir.sharif.vamdeh.webservices.base.WebserviceException;
-import ir.sharif.vamdeh.webservices.pref.WebservicePrefSeting;
+import ir.sharif.vamdeh.webservices.pref.WebservicePrefSetting;
 import ir.sharif.vamdeh.webservices.webservices.loan_request.accept_loan_request.AcceptLoanProcess;
 import ir.sharif.vamdeh.webservices.webservices.loan_request.accept_loan_request.AcceptLoanResponse;
 import ir.sharif.vamdeh.webservices.webservices.loan_request.create_my_loan_request.CreateMyLoanProcess;
@@ -50,46 +50,46 @@ public class WebserviceHelper {
     public static RegistrationResponse register(Context context, String username, String password1, String password2, String email) throws IOException, WebserviceException {
         RegistrationProcess process = new RegistrationProcess(username, password1, password2, email);
         RegistrationResponse response = process.process();
-        WebservicePrefSeting.getInstance(context).saveKey(response.getKey());
+        WebservicePrefSetting.getInstance(context).saveKey(response.getKey());
         return response;
     }
 
     public static LoginResponse login(Context context, String username, String password) throws IOException, WebserviceException {
         LoginProcess process = new LoginProcess(username, password);
         LoginResponse response = process.process();
-        WebservicePrefSeting.getInstance(context).saveKey(response.getKey());
+        WebservicePrefSetting.getInstance(context).saveKey(response.getKey());
         return response;
     }
 
     public static GetMyUserInfoResponse getMyUserInfo(Context context) throws IOException, WebserviceException {
-        WebservicePrefSeting.getInstance(context).isRegister();
+        WebservicePrefSetting.getInstance(context).isRegister();
         GetMyUserInfoProcess process = new GetMyUserInfoProcess();
         return process.process();
     }
 
     public static CreateMyProfileResponse createMyProfile(Context context, String userId, String mobilePhoneNo, String nationalID, String bankCardNo, String shebaNo) throws IOException, WebserviceException {
-        WebservicePrefSeting.getInstance(context).isRegister();
+        WebservicePrefSetting.getInstance(context).isRegister();
 
         CreateMyProfileProcess process = new CreateMyProfileProcess(userId, mobilePhoneNo, nationalID, bankCardNo, shebaNo);
         return process.process();
     }
 
     public static CreateTrustResponse createTrust(Context context, int trustier) throws IOException, WebserviceException {
-        WebservicePrefSeting.getInstance(context).isRegister();
+        WebservicePrefSetting.getInstance(context).isRegister();
 
         CreateTrustProcess process = new CreateTrustProcess(trustier);
         return process.process();
     }
 
     public static GetTrustRequestsAsAcceptorResponse[] getTrustRequestsAsAcceptor(Context context) throws IOException, WebserviceException {
-        WebservicePrefSeting.getInstance(context).isRegister();
+        WebservicePrefSetting.getInstance(context).isRegister();
 
         GetTrustRequestsAsAcceptorProcess process = new GetTrustRequestsAsAcceptorProcess();
         return process.process();
     }
 
     public static GetTrustRequestsAsRequesterResponse[] getTrustRequestsAsRequester(Context context) throws IOException, WebserviceException {
-        WebservicePrefSeting.getInstance(context).isRegister();
+        WebservicePrefSetting.getInstance(context).isRegister();
 
         GetTrustRequestsAsRequesterProcess process = new GetTrustRequestsAsRequesterProcess();
         return process.process();
@@ -101,14 +101,14 @@ public class WebserviceHelper {
     }
 
     public static CreateMyLoanResponse createMyLoan(Context context, String status, int amount, int timeToReturnMoney, int requester, int id) throws IOException, WebserviceException {
-        WebservicePrefSeting.getInstance(context).isRegister();
+        WebservicePrefSetting.getInstance(context).isRegister();
 
         CreateMyLoanProcess process = new CreateMyLoanProcess(status, amount, timeToReturnMoney, requester, id);
         return process.process();
     }
 
     public static DeleteMyLoanResponse deleteMyLoanProcess(Context context, int id) throws IOException, WebserviceException {
-        WebservicePrefSeting.getInstance(context).isRegister();
+        WebservicePrefSetting.getInstance(context).isRegister();
 
         DeleteMyLoanProcess process = new DeleteMyLoanProcess(id);
         return process.process();
@@ -120,50 +120,50 @@ public class WebserviceHelper {
     }
 
     public static GetMyLoanRelationsAsLenderResponse getMyLoanRelationsAsLender(Context context) throws IOException, WebserviceException {
-        WebservicePrefSeting.getInstance(context).isRegister();
+        WebservicePrefSetting.getInstance(context).isRegister();
 
         GetMyLoanRelationsAsLenderProcess process = new GetMyLoanRelationsAsLenderProcess();
         return process.process();
     }
 
     public static ListMyLoanResponse listMyLoan(Context context) throws IOException, WebserviceException {
-        WebservicePrefSeting.getInstance(context).isRegister();
+        WebservicePrefSetting.getInstance(context).isRegister();
         ListMyLoanProcess process = new ListMyLoanProcess();
         return process.process();
     }
 
     public static GetMyProfileUserResponse getMyProfileUser(Context context) throws IOException, WebserviceException {
-        WebservicePrefSeting.getInstance(context).isRegister();
+        WebservicePrefSetting.getInstance(context).isRegister();
         GetMyProfileUserProcess process = new GetMyProfileUserProcess();
         return process.process();
     }
 
     public static GetMyGiveTransactionsResponse getMyGiveTransations(Context context) throws IOException, WebserviceException {
-        WebservicePrefSeting.getInstance(context).isRegister();
+        WebservicePrefSetting.getInstance(context).isRegister();
         GetMyGiveTransactionsProcess process = new GetMyGiveTransactionsProcess();
         return process.process();
     }
 
     public static GetMyRepaymentResponse getMyRepayment(Context context) throws IOException, WebserviceException {
-        WebservicePrefSeting.getInstance(context).isRegister();
+        WebservicePrefSetting.getInstance(context).isRegister();
         GetMyRepaymentProcess process = new GetMyRepaymentProcess();
         return process.process();
     }
 
     public static EvaluateTrustRelationResponse evaluateTrustRelation(Context context, int trusted, int activeTrustValue, int id) throws IOException, WebserviceException {
-        WebservicePrefSeting.getInstance(context).isRegister();
+        WebservicePrefSetting.getInstance(context).isRegister();
         EvaluateTrustRelationProcess process = new EvaluateTrustRelationProcess(trusted, activeTrustValue, id);
         return process.process();
     }
 
       public static GetMyLastTrustRelationHistoryResponse getMyLastTrustRelationHistory(Context context) throws IOException, WebserviceException {
-        WebservicePrefSeting.getInstance(context).isRegister();
+        WebservicePrefSetting.getInstance(context).isRegister();
         GetMyLastTrustRelationHistoryProcess process = new GetMyLastTrustRelationHistoryProcess();
         return process.process();
     }
 
     public static UpdateMyTrustRelationValueResponse updateMyTrustRelationValueProcess(Context context, int id, int activeTrustValue) throws IOException, WebserviceException {
-        WebservicePrefSeting.getInstance(context).isRegister();
+        WebservicePrefSetting.getInstance(context).isRegister();
         UpdateMyTrustRelationValueProcess process = new UpdateMyTrustRelationValueProcess(id, activeTrustValue);
         return process.process();
     }
