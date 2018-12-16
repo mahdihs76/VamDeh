@@ -2,23 +2,18 @@ package ir.sharif.vamdeh.activity
 
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-
-import ir.sharif.MyApplication
 import ir.sharif.vamdeh.ApplicationContext
 import ir.sharif.vamdeh.R
+import kotlinx.android.synthetic.main.activity_profile.*
+import org.jetbrains.anko.sdk27.coroutines.onClick
 
 
 class ProfileActivity : BaseActivity() {
@@ -27,6 +22,8 @@ class ProfileActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
         initializeViews()
+
+        profileSubmitButton.onClick {  }
     }
 
     private fun initializeViews() {

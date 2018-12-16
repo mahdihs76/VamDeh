@@ -19,10 +19,3 @@ class UnoSumbitButton : UnoButton {
         text = context.getString(R.string.submit)
     }
 }
-
-
-inline fun ViewManager.unoSumbitButton() = unoSumbitButton{}
-
-inline fun ViewManager.unoSumbitButton(init: UnoSumbitButton.() -> Unit): UnoSumbitButton {
-    return ankoView({ UnoSumbitButton(it) }, theme = 0, init = init)
-}

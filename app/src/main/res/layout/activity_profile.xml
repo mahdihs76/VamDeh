@@ -179,7 +179,7 @@
         android:textColor="@android:color/white"
         android:textColorHint="@color/white" />
 
-<TextView
+    <TextView
         android:id="@+id/addressHintTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -204,7 +204,6 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/edit_text_background"
         android:ellipsize="end"
-        android:paddingTop="8dp"
         android:gravity="top"
         android:hint="@string/addressHint"
         android:inputType="textPostalAddress|textMultiLine"
@@ -214,33 +213,34 @@
         android:paddingLeft="20dp"
         android:paddingRight="30dp"
         android:paddingStart="20dp"
+        android:paddingTop="8dp"
         android:textColor="@android:color/white"
         android:textColorHint="@color/white" />
 
     <Button
+        android:id="@+id/profileSubmitButton"
         android:layout_width="120dp"
         android:layout_height="48dp"
-        android:id="@+id/profileSubmitButton"
+        android:layout_alignEnd="@id/addressEditText"
         android:layout_alignParentBottom="true"
+        android:layout_alignRight="@id/addressEditText"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/profile_submit_background"
         android:text="@string/submit"
         android:textColor="@android:color/white"
-        android:textSize="22sp"
-        android:background="@drawable/profile_submit_background"
-        android:layout_alignRight="@id/addressEditText"
-        android:layout_alignEnd="@id/addressEditText" />
+        android:textSize="22sp" />
 
     <Button
+        android:id="@+id/profileCancelButton"
         android:layout_width="120dp"
         android:layout_height="48dp"
-        android:id="@+id/profileCancelButton"
+        android:layout_alignLeft="@id/addressEditText"
         android:layout_alignParentBottom="true"
+        android:layout_alignStart="@id/addressEditText"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/profile_cancel_background"
         android:text="@string/cancel"
         android:textColor="@android:color/white"
-        android:textSize="22sp"
-        android:background="@drawable/profile_cancel_background"
-        android:layout_alignLeft="@id/addressEditText"
-        android:layout_alignStart="@id/addressEditText" />
+        android:textSize="22sp" />
 
 </RelativeLayout>

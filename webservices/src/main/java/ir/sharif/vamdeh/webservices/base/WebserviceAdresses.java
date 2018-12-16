@@ -2,6 +2,9 @@ package ir.sharif.vamdeh.webservices.base;
 
 public class WebserviceAdresses {
     public static final String BASE_URL = "https://vianatest.herokuapp.com/";
+    public static final String VERIFICATION = "rest-auth/verification/";
+    public static final String SEND_VERIFICATION_CODE = "rest-auth/send_verification_code/";
+    public static final String GET_MY_SCORES = "rest-auth/get_my_scores/";
     public static final String LOGIN = "rest-auth/login/";
     public static final String CREATE_PROFILE = "v1/profile/create_my_profile/";
     public static final String GET_MY_USER_INFO = "v1/user/get_my_user_info/";
@@ -20,6 +23,6 @@ public class WebserviceAdresses {
     public static final String GET_MY_PROFILE_USER = "v1/profile/get_my_profile_user/";
     public static final String GET_MY_LOAN_RELATIONS_AS_LENDER = "v1/loan_relation/get_my_loan_relations_as_lender/";
     public static final String GET_MY_LOAN_RELATIONS_AS_BORROWER = "v1/loan_relation/get_my_loan_relations_as_borrower/";
-    public static final String LIST_MY_LOAN = "v1/loan_request/list_my_loan_requests/";
 
+    public static final String LIST_MY_LOAN = "v1/loan_request/list_my_loan_requests/";
 }

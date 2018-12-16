@@ -84,7 +84,7 @@ public class MyRetrofit {
     }
 
     private String getToken() {
-        String key = WebservicePrefSetting.getInstanceWithoutContext().getKey();
+        String key = WebservicePrefSetting.getInstanceWithoutContext().getToken();
         return "token " + key;
     }
 

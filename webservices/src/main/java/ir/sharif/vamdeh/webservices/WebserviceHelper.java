@@ -26,10 +26,16 @@ import ir.sharif.vamdeh.webservices.webservices.repayment.get_my_give_transactio
 import ir.sharif.vamdeh.webservices.webservices.repayment.get_my_give_transactions.GetMyGiveTransactionsResponse;
 import ir.sharif.vamdeh.webservices.webservices.repayment.get_my_repayments.GetMyRepaymentProcess;
 import ir.sharif.vamdeh.webservices.webservices.repayment.get_my_repayments.GetMyRepaymentResponse;
+import ir.sharif.vamdeh.webservices.webservices.rest_auth.get_my_scores.GetMyScoresProcess;
+import ir.sharif.vamdeh.webservices.webservices.rest_auth.get_my_scores.GetMyScoresResponse;
 import ir.sharif.vamdeh.webservices.webservices.rest_auth.login.LoginProcess;
 import ir.sharif.vamdeh.webservices.webservices.rest_auth.login.LoginResponse;
 import ir.sharif.vamdeh.webservices.webservices.rest_auth.registration.RegistrationProcess;
 import ir.sharif.vamdeh.webservices.webservices.rest_auth.registration.RegistrationResponse;
+import ir.sharif.vamdeh.webservices.webservices.rest_auth.send_verification_code.SendVerificationCodeProcess;
+import ir.sharif.vamdeh.webservices.webservices.rest_auth.send_verification_code.SendVerificationCodeResponse;
+import ir.sharif.vamdeh.webservices.webservices.rest_auth.verification.VerificationProcess;
+import ir.sharif.vamdeh.webservices.webservices.rest_auth.verification.VerificationResponse;
 import ir.sharif.vamdeh.webservices.webservices.trust_relation.create_trust.CreateTrustProcess;
 import ir.sharif.vamdeh.webservices.webservices.trust_relation.create_trust.CreateTrustResponse;
 import ir.sharif.vamdeh.webservices.webservices.trust_relation.evaluate_trust_relation.EvaluateTrustRelationProcess;
@@ -47,17 +53,34 @@ import ir.sharif.vamdeh.webservices.webservices.user.get_my_user_info.GetMyUserI
 
 public class WebserviceHelper {
 
+    public static VerificationResponse verification(String username) throws IOException, WebserviceException {
+        VerificationProcess process = new VerificationProcess(username);
+        return process.process();
+    }
+
+    public static SendVerificationCodeResponse sendVerificationCode(Context context, String username, String code) throws IOException, WebserviceException {
+        SendVerificationCodeProcess process = new SendVerificationCodeProcess(username, code);
+        SendVerificationCodeResponse response = process.process();
+        WebservicePrefSetting.getInstance(context).saveToken(response.getToken());
+        return response;
+    }
+
+    public static GetMyScoresResponse getMyScores() throws IOException, WebserviceException {
+        GetMyScoresProcess process = new GetMyScoresProcess();
+        return process.process();
+    }
+
     public static RegistrationResponse register(Context context, String username, String password1, String password2, String email) throws IOException, WebserviceException {
         RegistrationProcess process = new RegistrationProcess(username, password1, password2, email);
         RegistrationResponse response = process.process();
-        WebservicePrefSetting.getInstance(context).saveKey(response.getKey());
+        WebservicePrefSetting.getInstance(context).saveToken(response.getKey());
         return response;
     }
 
     public static LoginResponse login(Context context, String username, String password) throws IOException, WebserviceException {
         LoginProcess process = new LoginProcess(username, password);
         LoginResponse response = process.process();
-        WebservicePrefSetting.getInstance(context).saveKey(response.getKey());
+        WebservicePrefSetting.getInstance(context).saveToken(response.getKey());
         return response;
     }
 
@@ -167,12 +190,5 @@ public class WebserviceHelper {
         UpdateMyTrustRelationValueProcess process = new UpdateMyTrustRelationValueProcess(id, activeTrustValue);
         return process.process();
     }
-
-
-
-
-
-
-
 
 }

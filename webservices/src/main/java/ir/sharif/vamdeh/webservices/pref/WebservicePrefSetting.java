@@ -36,12 +36,12 @@ public class WebservicePrefSetting {
 
     }
 
-    public void saveKey(String key) {
+    public void saveToken(String key) {
         sharedPreferences.edit().putString(PrefCostance.SHARED_KEY, key).apply();
 
     }
 
-    public String getKey() {
+    public String getToken() {
         return sharedPreferences.getString(PrefCostance.SHARED_KEY, "");
     }
 }

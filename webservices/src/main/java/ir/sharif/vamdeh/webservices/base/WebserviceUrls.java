@@ -1,5 +1,10 @@
 package ir.sharif.vamdeh.webservices.base;
 
+import ir.sharif.vamdeh.webservices.webservices.rest_auth.get_my_scores.GetMyScoresResponse;
+import ir.sharif.vamdeh.webservices.webservices.rest_auth.send_verification_code.SendVerificationCodeRequest;
+import ir.sharif.vamdeh.webservices.webservices.rest_auth.send_verification_code.SendVerificationCodeResponse;
+import ir.sharif.vamdeh.webservices.webservices.rest_auth.verification.VerificationRequest;
+import ir.sharif.vamdeh.webservices.webservices.rest_auth.verification.VerificationResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -35,6 +40,15 @@ import ir.sharif.vamdeh.webservices.webservices.trust_relation.update_my_trust_r
 import ir.sharif.vamdeh.webservices.webservices.user.get_my_user_info.GetMyUserInfoResponse;
 
 public interface WebserviceUrls {
+
+    @POST(WebserviceAdresses.VERIFICATION)
+    Call<VerificationResponse> verification(@Body VerificationRequest request);
+
+    @POST(WebserviceAdresses.SEND_VERIFICATION_CODE)
+    Call<SendVerificationCodeResponse> sendVerificationCode(@Body SendVerificationCodeRequest request);
+
+    @GET(WebserviceAdresses.GET_MY_SCORES)
+    Call<GetMyScoresResponse> getMyScores();
 
     @POST(WebserviceAdresses.REGISTRATION)
     Call<RegistrationResponse> register(@Body RegistrationRequest request);

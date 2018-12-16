@@ -4,14 +4,20 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import ir.sharif.vamdeh.activity.*
+import org.jetbrains.anko.makeCall
+import org.jetbrains.anko.startActivity
 
 /**
  * Created by mahdihs76 on 9/10/18.
  */
-fun Context.gotoActivation() = gotoWithoutAnimation(ActivationActivity::class.java)
-fun Context.gotoMainPage() = gotoWithoutAnimation(MainActivity::class.java)
-fun Context.gotoLoans() = gotoWithoutAnimation(LoansActivity::class.java)
-fun Context.gotoProfile() = gotoWithoutAnimation(ProfileActivity::class.java)
-fun Context.gotoLending() = gotoWithoutAnimation(LendingActivity::class.java)
-fun Context.gotoLoanRequest() = gotoWithoutAnimation(LoanRequestActivity::class.java)
-fun Context.gotoWithoutAnimation(clazz: Class<*>) = startActivity(Intent(this, clazz))
+
+const val KEY_PHONE = "key_phone"
+
+fun Context.gotoActivation() = startActivity<ActivationActivity>()
+fun Context.gotoActivation(phone:String) = startActivity<ActivationActivity>(KEY_PHONE to phone)
+fun Context.gotoMainPage() = startActivity<MainActivity>()
+fun Context.gotoLoans() = startActivity<LoansActivity>()
+fun Context.gotoProfile() = startActivity<ProfileActivity>()
+fun Context.gotoLending() = startActivity<LendingActivity>()
+fun Context.gotoLoanRequest() = startActivity<LoanRequestActivity>()
+

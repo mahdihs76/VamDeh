@@ -29,4 +29,8 @@
     <string name="paymentDateLabel">زمان قسط</string>
     <string name="pay">پرداخت</string>
     <string name="paid">تصویه شد</string>
+    <string name="sweat_heart_rate">امتیاز خوش حسابی</string>
+    <string name="total_rate">امتیاز کل</string>
+    <string name="loan_rate">امتیاز ارایه وام</string>
+    <string name="zero">0</string>
 </resources>

@@ -2,55 +2,44 @@ package ir.sharif.vamdeh.activity
 
 import android.os.Bundle
 import ir.sharif.vamdeh.R
+import ir.sharif.vamdeh.cache.CacheConstants
+import ir.sharif.vamdeh.cache.defaultCache
+import ir.sharif.vamdeh.cache.get
+import ir.sharif.vamdeh.cache.set
+import ir.sharif.vamdeh.helper.KEY_PHONE
+import ir.sharif.vamdeh.helper.gotoActivation
 import ir.sharif.vamdeh.helper.gotoMainPage
-import ir.sharif.vamdeh.view.button.unoSumbitButton
-import ir.sharif.vamdeh.view.edittext.unoOneDigitEditText
+import ir.sharif.vamdeh.task.events.SendVerificationCodeEvent
+import ir.sharif.vamdeh.task.events.VerificationEvent
+import ir.sharif.vamdeh.task.jobs.SendVerificationCodeJob
+import ir.sharif.vamdeh.utils.getInLineEditTexts
+import ir.sharif.vamdeh.utils.handleInLineEditTextFocus
+import kotlinx.android.synthetic.main.activity_activation.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
-import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 
-class ActivationActivity : BaseActivity() {
+class ActivationActivity : BaseActivityJobSupport() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ActivationActivityUI().setContentView(this)
+        setContentView(R.layout.activity_activation)
+        val vCodeEditTexts = arrayOf(digit1, digit2, digit3, digit4)
+        val phone = intent.getStringExtra(KEY_PHONE) ?: ""
+
+        handleInLineEditTextFocus(1, vCodeEditTexts)
+        submit.onClick { activateUser(phone, getInLineEditTexts(vCodeEditTexts)) }
     }
 
-    fun checkActivationCode(code: String) {
+    private fun activateUser(phone: String, code:String) {
         gotoMainPage()
+//        SendVerificationCodeJob.scheduleJob(phone, code)
     }
 
-}
-
-class ActivationActivityUI : AnkoComponent<ActivationActivity> {
-    override fun createView(ui: AnkoContext<ActivationActivity>) = with(ui) {
-
-        relativeLayout {
-            backgroundResource = R.mipmap.background
-
-            linearLayout {
-                addOneDigitEditText()
-                addOneDigitEditText()
-                addOneDigitEditText()
-                addOneDigitEditText()
-            }.lparams {
-                centerHorizontally()
-                topMargin = dip(100)
-            }
-
-            unoSumbitButton().lparams {
-                width = dip(220)
-                height = dip(50)
-                alignParentBottom()
-                centerHorizontally()
-                bottomMargin = dip(80)
-            }.onClick { ui.owner.checkActivationCode("") }
-        }
-
-    }.view()
-
-    private fun @AnkoViewDslMarker _LinearLayout.addOneDigitEditText() {
-        unoOneDigitEditText { lparams(width = dip(50), height = dip(50)) { leftMargin = dip(10) } }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onEvent(event: SendVerificationCodeEvent) = {
+        defaultCache()[CacheConstants.KEY_PHONE] = event.phone
+        gotoMainPage()
     }
 }
