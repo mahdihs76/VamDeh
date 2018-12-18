@@ -1,4 +1,4 @@
-package ir.sharif.vamdeh.activity
+package ir.sharif.vamdeh.activity.base
 
 import android.content.Context
 import android.os.Bundle

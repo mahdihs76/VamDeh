@@ -10,8 +10,8 @@ import ir.sharif.vamdeh.webservices.base.WebserviceException;
 public class LoginProcess extends BaseProcess {
     private LoginRequest request;
 
-    public LoginProcess(String username, String password) {
-        this.request = new LoginRequest(username, password);
+    public LoginProcess(String phoneNumber, String password) {
+        this.request = new LoginRequest(phoneNumber, password);
     }
 
     @Override

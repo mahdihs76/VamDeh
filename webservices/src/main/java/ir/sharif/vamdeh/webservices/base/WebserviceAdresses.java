@@ -2,9 +2,9 @@ package ir.sharif.vamdeh.webservices.base;
 
 public class WebserviceAdresses {
     public static final String BASE_URL = "https://vianatest.herokuapp.com/";
-    public static final String VERIFICATION = "rest-auth/verification/";
-    public static final String SEND_VERIFICATION_CODE = "rest-auth/send_verification_code/";
-    public static final String GET_MY_SCORES = "rest-auth/get_my_scores/";
+    public static final String VERIFICATION = "v1/verification_code/send_verification_token/";
+    public static final String SEND_VERIFICATION_CODE = "v1/verification_code/verified_token/";
+    public static final String GET_MY_SCORES = "v1/score/get_my_scores/";
     public static final String LOGIN = "rest-auth/login/";
     public static final String CREATE_PROFILE = "v1/profile/create_my_profile/";
     public static final String GET_MY_USER_INFO = "v1/user/get_my_user_info/";

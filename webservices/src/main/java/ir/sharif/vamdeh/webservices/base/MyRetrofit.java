@@ -71,9 +71,7 @@ public class MyRetrofit {
                 @Override
                 public Response intercept(Interceptor.Chain chain) throws IOException {
                     Request original = chain.request();
-
                     Request request = original.newBuilder()
-
                             .addHeader("Authorization", getToken())
                             .build();
 

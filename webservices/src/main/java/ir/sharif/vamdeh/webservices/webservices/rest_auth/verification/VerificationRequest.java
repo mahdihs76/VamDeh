@@ -5,10 +5,10 @@ import com.google.gson.annotations.SerializedName;
 import ir.sharif.vamdeh.webservices.base.BaseRequest;
 
 public class VerificationRequest extends BaseRequest {
-    @SerializedName("username")
-    private String userName;
+    @SerializedName("mobile_phone_number")
+    private String phoneNumber;
 
     public VerificationRequest(String userName) {
-        this.userName = userName;
+        this.phoneNumber = userName;
     }
 }

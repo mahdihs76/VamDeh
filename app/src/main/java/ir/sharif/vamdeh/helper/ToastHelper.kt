@@ -8,3 +8,5 @@ import org.jetbrains.anko.longToast
  */
 
 fun Context.toastInvalidPhone() = longToast("InvalidPhoneNumber")
+fun Context.toastInvalidPassword() = longToast("InvalidPassword")
+fun Context.toastLoginFailed()= longToast("LoginFailed")

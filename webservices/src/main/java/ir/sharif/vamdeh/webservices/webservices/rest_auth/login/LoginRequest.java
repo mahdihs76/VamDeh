@@ -6,12 +6,12 @@ import ir.sharif.vamdeh.webservices.base.BaseRequest;
 
 public class LoginRequest extends BaseRequest {
     @SerializedName("username")
-    private String userName;
+    private String phoneNumber;
     @SerializedName("password")
     private String password;
 
-    public LoginRequest(String userName, String password) {
-        this.userName = userName;
+    public LoginRequest(String phoneNumber, String password) {
+        this.phoneNumber = phoneNumber;
         this.password = password;
     }
 }

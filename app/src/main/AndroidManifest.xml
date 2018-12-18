@@ -3,26 +3,27 @@
     package="ir.sharif.vamdeh">
 
     <application
+        android:name="ir.sharif.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name="ir.sharif.MyApplication">
-        <activity android:name=".activity.PhoneActivity">
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.before_main.PhoneActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ActivationActivity" />
+        <activity android:name=".activity.before_main.ActivationActivity" />
         <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.LoansActivity" />
+        <activity android:name=".activity.operations.LoansActivity" />
         <activity android:name=".activity.ProfileActivity" />
-        <activity android:name=".activity.LendingActivity" />
-        <activity android:name=".activity.LoanRequestActivity" />
+        <activity android:name=".activity.operations.LendingActivity" />
+        <activity android:name=".activity.operations.LoanRequestActivity" />
+        <activity android:name=".activity.before_main.RegisterActivity"></activity>
     </application>
 
 </manifest>

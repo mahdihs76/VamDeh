@@ -1,4 +1,4 @@
-package ir.sharif.vamdeh.activity
+package ir.sharif.vamdeh.activity.base
 
 import org.greenrobot.eventbus.EventBus
 

@@ -10,8 +10,8 @@ import retrofit2.Call;
 public class SendVerificationCodeProcess extends BaseProcess {
     private SendVerificationCodeRequest request;
 
-    public SendVerificationCodeProcess(String username, String code) {
-        this.request = new SendVerificationCodeRequest(username, code);
+    public SendVerificationCodeProcess(String phoneNumber, String code) {
+        this.request = new SendVerificationCodeRequest(phoneNumber, code);
     }
 
     @Override

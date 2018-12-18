@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import ir.sharif.vamdeh.ApplicationContext
 import ir.sharif.vamdeh.R
+import ir.sharif.vamdeh.activity.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_profile.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 

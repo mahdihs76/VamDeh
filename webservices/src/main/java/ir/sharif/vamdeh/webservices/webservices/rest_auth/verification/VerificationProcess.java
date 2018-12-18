@@ -5,15 +5,13 @@ import java.io.IOException;
 import ir.sharif.vamdeh.webservices.base.BaseProcess;
 import ir.sharif.vamdeh.webservices.base.MyRetrofit;
 import ir.sharif.vamdeh.webservices.base.WebserviceException;
-import ir.sharif.vamdeh.webservices.webservices.rest_auth.login.LoginRequest;
-import ir.sharif.vamdeh.webservices.webservices.rest_auth.login.LoginResponse;
 import retrofit2.Call;
 
 public class VerificationProcess extends BaseProcess {
     private VerificationRequest request;
 
-    public VerificationProcess(String username) {
-        this.request = new VerificationRequest(username);
+    public VerificationProcess(String phoneNumber) {
+        this.request = new VerificationRequest(phoneNumber);
     }
 
     @Override

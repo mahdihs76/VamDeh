@@ -3,6 +3,7 @@ package ir.sharif.vamdeh.webservices;
 import android.content.Context;
 
 import java.io.IOException;
+import java.util.List;
 
 import ir.sharif.vamdeh.webservices.base.WebserviceException;
 import ir.sharif.vamdeh.webservices.pref.WebservicePrefSetting;
@@ -58,27 +59,25 @@ public class WebserviceHelper {
         return process.process();
     }
 
-    public static SendVerificationCodeResponse sendVerificationCode(Context context, String username, String code) throws IOException, WebserviceException {
+    public static SendVerificationCodeResponse sendVerificationCode(String username, String code) throws IOException, WebserviceException {
         SendVerificationCodeProcess process = new SendVerificationCodeProcess(username, code);
-        SendVerificationCodeResponse response = process.process();
-        WebservicePrefSetting.getInstance(context).saveToken(response.getToken());
-        return response;
+        return process.process();
     }
 
-    public static GetMyScoresResponse getMyScores() throws IOException, WebserviceException {
+    public static List<GetMyScoresResponse> getMyScores() throws IOException, WebserviceException {
         GetMyScoresProcess process = new GetMyScoresProcess();
         return process.process();
     }
 
-    public static RegistrationResponse register(Context context, String username, String password1, String password2, String email) throws IOException, WebserviceException {
-        RegistrationProcess process = new RegistrationProcess(username, password1, password2, email);
+    public static RegistrationResponse register(Context context, String username, String password1, String password2) throws IOException, WebserviceException {
+        RegistrationProcess process = new RegistrationProcess(username, password1, password2);
         RegistrationResponse response = process.process();
         WebservicePrefSetting.getInstance(context).saveToken(response.getKey());
         return response;
     }
 
-    public static LoginResponse login(Context context, String username, String password) throws IOException, WebserviceException {
-        LoginProcess process = new LoginProcess(username, password);
+    public static LoginResponse login(Context context, String phoneNumber, String password) throws IOException, WebserviceException {
+        LoginProcess process = new LoginProcess(phoneNumber, password);
         LoginResponse response = process.process();
         WebservicePrefSetting.getInstance(context).saveToken(response.getKey());
         return response;
@@ -123,10 +122,8 @@ public class WebserviceHelper {
         return process.process();
     }
 
-    public static CreateMyLoanResponse createMyLoan(Context context, String status, int amount, int timeToReturnMoney, int requester, int id) throws IOException, WebserviceException {
-        WebservicePrefSetting.getInstance(context).isRegister();
-
-        CreateMyLoanProcess process = new CreateMyLoanProcess(status, amount, timeToReturnMoney, requester, id);
+    public static CreateMyLoanResponse createMyLoan(int amount, int timeToReturnMoney, String status) throws IOException, WebserviceException {
+        CreateMyLoanProcess process = new CreateMyLoanProcess(amount, timeToReturnMoney, status);
         return process.process();
     }
 

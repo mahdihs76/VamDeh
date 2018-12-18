@@ -5,14 +5,14 @@ import com.google.gson.annotations.SerializedName;
 import ir.sharif.vamdeh.webservices.base.BaseRequest;
 
 public class SendVerificationCodeRequest extends BaseRequest {
-    @SerializedName("username")
-    private String userName;
+    @SerializedName("mobile_phone_number")
+    private String phoneNumber;
 
-    @SerializedName("code")
+    @SerializedName("token")
     private String code;
 
-    public SendVerificationCodeRequest(String userName, String code) {
-        this.userName = userName;
+    public SendVerificationCodeRequest(String phoneNumber, String code) {
+        this.phoneNumber = phoneNumber;
         this.code = code;
     }
 }

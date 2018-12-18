@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/background"
-    tools:context=".LoanRequestFragment">
+    tools:context=".activity.operations.LoanRequestActivity">
 
     <TextView
         android:id="@+id/loanAmountTextView"
@@ -150,7 +150,7 @@
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/paymentDescriptionEditText"
+        android:id="@+id/descriptionEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/monthlyPaymentLabelTextView"
@@ -163,20 +163,14 @@
         android:textColorHint="@android:color/black"
         android:theme="@style/Theme.App.Base" />
 
-    <Button
-        android:id="@+id/submitLendingButton"
+    <ir.sharif.vamdeh.view.button.UnoButton
+        android:id="@+id/loanRequestSubmit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="64dp"
         android:layout_marginLeft="64dp"
         android:layout_marginRight="64dp"
-        android:background="@drawable/submit_button_background"
-        android:gravity="center"
-        android:minHeight="48dp"
-        android:text="@string/loanRequest"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="24sp" />
+        android:text="@string/loanRequest" />
 
 </RelativeLayout>

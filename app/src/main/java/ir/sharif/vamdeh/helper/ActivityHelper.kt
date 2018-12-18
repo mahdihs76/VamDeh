@@ -1,10 +1,13 @@
 package ir.sharif.vamdeh.helper
 
 import android.app.Activity
-import android.content.Context
-import android.content.Intent
 import ir.sharif.vamdeh.activity.*
-import org.jetbrains.anko.makeCall
+import ir.sharif.vamdeh.activity.before_main.ActivationActivity
+import ir.sharif.vamdeh.activity.before_main.PhoneActivity
+import ir.sharif.vamdeh.activity.before_main.RegisterActivity
+import ir.sharif.vamdeh.activity.operations.LendingActivity
+import ir.sharif.vamdeh.activity.operations.LoanRequestActivity
+import ir.sharif.vamdeh.activity.operations.LoansActivity
 import org.jetbrains.anko.startActivity
 
 /**
@@ -13,11 +16,14 @@ import org.jetbrains.anko.startActivity
 
 const val KEY_PHONE = "key_phone"
 
-fun Context.gotoActivation() = startActivity<ActivationActivity>()
-fun Context.gotoActivation(phone:String) = startActivity<ActivationActivity>(KEY_PHONE to phone)
-fun Context.gotoMainPage() = startActivity<MainActivity>()
-fun Context.gotoLoans() = startActivity<LoansActivity>()
-fun Context.gotoProfile() = startActivity<ProfileActivity>()
-fun Context.gotoLending() = startActivity<LendingActivity>()
-fun Context.gotoLoanRequest() = startActivity<LoanRequestActivity>()
+fun Activity.gotoActivation() = startActivity<ActivationActivity>()
+fun Activity.gotoActivation(phone:String) = startActivity<ActivationActivity>(KEY_PHONE to phone)
+fun Activity.gotoMainPage() = startActivity<MainActivity>().apply { finish() }
+fun Activity.gotoLoans() = startActivity<LoansActivity>()
+fun Activity.gotoProfile() = startActivity<ProfileActivity>()
+fun Activity.gotoLending() = startActivity<LendingActivity>()
+fun Activity.gotoLoanRequest() = startActivity<LoanRequestActivity>()
+fun Activity.gotoRegister() = startActivity<RegisterActivity>()
+fun Activity.gotoPhonePage() = startActivity<PhoneActivity>().apply { finish() }
+
 

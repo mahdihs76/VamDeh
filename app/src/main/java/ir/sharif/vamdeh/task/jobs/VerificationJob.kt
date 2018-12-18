@@ -5,7 +5,6 @@ import com.evernote.android.job.JobRequest
 import com.evernote.android.job.util.support.PersistableBundleCompat
 import ir.sharif.vamdeh.task.JobConstants
 import ir.sharif.vamdeh.task.events.VerificationEvent
-import ir.sharif.vamdeh.utils.normalizePhone
 import ir.sharif.vamdeh.webservices.WebserviceHelper
 import org.greenrobot.eventbus.EventBus
 
@@ -14,23 +13,13 @@ import org.greenrobot.eventbus.EventBus
  */
 class VerificationJob : Job() {
 
+    companion object { const val TAG = "verification_tag" }
+
     override fun onRunJob(params: Params): Result {
-
         val phone = params.extras.getString(JobConstants.PHONE_NUMBER, "")
-        val response = WebserviceHelper.verification(normalizePhone(phone))
-        EventBus.getDefault().post(VerificationEvent())
+        WebserviceHelper.verification(phone)
+        EventBus.getDefault().post(VerificationEvent(phone))
         return Result.SUCCESS
-    }
-
-    companion object {
-        fun scheduleJob(phone: String) {
-            val extras = PersistableBundleCompat().apply { putString(JobConstants.PHONE_NUMBER, phone) }
-            JobRequest.Builder(JobConstants.VERIFICATION_TAG)
-                    .addExtras(extras)
-                    .startNow()
-                    .build()
-                    .schedule()
-        }
     }
 
 }

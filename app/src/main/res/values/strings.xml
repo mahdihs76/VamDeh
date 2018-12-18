@@ -33,4 +33,7 @@
     <string name="total_rate">امتیاز کل</string>
     <string name="loan_rate">امتیاز ارایه وام</string>
     <string name="zero">0</string>
+    <string name="password">رمز عبور</string>
+    <string name="again_password">رمز عبور مجدد</string>
+    <string name="login_page_title">فعالسازی اکانت شما با موفقیت انجام شد \n  رمز عبوری برای ورود به اکانت خود انتخاب کنید</string>
 </resources>

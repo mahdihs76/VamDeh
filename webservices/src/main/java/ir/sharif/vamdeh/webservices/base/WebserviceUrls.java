@@ -1,5 +1,7 @@
 package ir.sharif.vamdeh.webservices.base;
 
+import java.util.List;
+
 import ir.sharif.vamdeh.webservices.webservices.rest_auth.get_my_scores.GetMyScoresResponse;
 import ir.sharif.vamdeh.webservices.webservices.rest_auth.send_verification_code.SendVerificationCodeRequest;
 import ir.sharif.vamdeh.webservices.webservices.rest_auth.send_verification_code.SendVerificationCodeResponse;
@@ -48,7 +50,7 @@ public interface WebserviceUrls {
     Call<SendVerificationCodeResponse> sendVerificationCode(@Body SendVerificationCodeRequest request);
 
     @GET(WebserviceAdresses.GET_MY_SCORES)
-    Call<GetMyScoresResponse> getMyScores();
+    Call<List<GetMyScoresResponse>> getMyScores();
 
     @POST(WebserviceAdresses.REGISTRATION)
     Call<RegistrationResponse> register(@Body RegistrationRequest request);

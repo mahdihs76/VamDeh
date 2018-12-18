@@ -1,10 +1,10 @@
-package ir.sharif.vamdeh.activity
+package ir.sharif.vamdeh.activity.operations
 
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 
 import ir.sharif.vamdeh.R
+import ir.sharif.vamdeh.activity.base.BaseActivity
 
 class LoansActivity : BaseActivity() {
 

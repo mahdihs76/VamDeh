@@ -5,4 +5,6 @@ package ir.sharif.vamdeh.cache
  */
 object CacheConstants{
     const val KEY_PHONE = "key_phone"
+    const val KEY_IS_REGISTER = "key_is_register"
+    const val KEY_PASSWORD = "key_password"
 }
