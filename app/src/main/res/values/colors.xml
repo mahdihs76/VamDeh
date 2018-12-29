@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#a537b6f4</color>
-    <color name="colorPrimaryDark">#a537b6f4</color>
-    <color name="colorAccent">#a537b6f4</color>
+    <color name="colorPrimary">#0E4C59</color>
+    <color name="colorPrimaryDark">#0E4C59</color>
+    <color name="colorAccent">#0E4C59</color>
     <color name="trans">#00000000 </color>.
     <color name="seekBar">#0008ff</color>
     <color name="buttonBackground">#be3da4f0</color>
@@ -12,7 +12,10 @@
     <color name="addColor">#00ccff</color>
     <color name="editTextBackgroundColor">#7f63c7fa</color>
     <color name="editTextBorderColor">#8a9bed</color>
-    <color name="white">#80FFFFFF</color>
+    <color name="white">#ffffff</color>
     <color name="progressColor">#E56126</color>
+    <color name="rateColor">#965acaaf</color>
+    <color name="lightGreen">#56E392</color>
+    <color name="strongGreen">#0c8c42</color>
 
 </resources>

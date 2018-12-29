@@ -2,7 +2,7 @@ package ir.sharif.vamdeh.activity.base
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import ir.sharif.vamdeh.R
 import org.greenrobot.eventbus.EventBus
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig

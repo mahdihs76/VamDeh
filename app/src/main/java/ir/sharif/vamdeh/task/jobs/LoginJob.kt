@@ -8,6 +8,7 @@ import ir.sharif.vamdeh.cache.get
 import ir.sharif.vamdeh.task.JobConstants
 import ir.sharif.vamdeh.task.events.LoginEvent
 import ir.sharif.vamdeh.task.events.RegisterEvent
+import ir.sharif.vamdeh.utils.normalizePhone
 import ir.sharif.vamdeh.webservices.WebserviceHelper
 import org.greenrobot.eventbus.EventBus
 
@@ -19,9 +20,10 @@ class LoginJob : Job() {
     companion object { const val TAG = "login_tag" }
 
     override fun onRunJob(params: Params): Result {
+        
         try {
             WebserviceHelper.login(ApplicationContext.context,
-                    defaultCache()[CacheConstants.KEY_PHONE],
+                    normalizePhone(defaultCache()[CacheConstants.KEY_PHONE]!!),
                     defaultCache()[CacheConstants.KEY_PASSWORD])
             EventBus.getDefault().post(LoginEvent(true))
         } catch (e: Exception) {

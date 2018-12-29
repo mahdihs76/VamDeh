@@ -6,6 +6,7 @@ import android.view.ViewManager
 import ir.sharif.vamdeh.R
 import ir.sharif.vamdeh.view.edittext.UnoOneDigitEditText
 import org.jetbrains.anko.custom.ankoView
+import org.jetbrains.anko.dip
 
 /**
  * Created by mahdihs76 on 9/10/18.

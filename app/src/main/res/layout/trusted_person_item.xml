@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp"
+    android:layout_gravity="center"
+    android:gravity="center_horizontal"
+    android:layout_margin="24dp"
+    android:background="@drawable/slider_bg">
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:text="مهدی حسن زاده"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/phoneTextView"
+        android:layout_width="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:text="09150773830" />
+
+    <TextView
+        android:id="@+id/trustedDateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameTextView"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/white"
+        android:layout_alignParentRight="true"
+        android:text="تاریخ اعتماد:"/>
+
+
+    <TextView
+        android:id="@+id/trustedDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/trustedDateLabel"
+        android:layout_below="@id/nameTextView"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/white"
+        android:text="97/01/01"/>
+
+    <TextView
+        android:id="@+id/inviteLinkTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameTextView"
+        android:layout_marginTop="4dp"
+        android:layout_alignParentLeft="true"
+        android:text="ارسال لینک دعوت"/>
+
+</RelativeLayout>

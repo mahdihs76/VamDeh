@@ -5,14 +5,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 28
     defaultConfig {
         applicationId "ir.sharif.vamdeh"
         minSdkVersion 19
-        targetSdkVersion 26
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -27,13 +27,14 @@ dependencies {
     compile project(':webservices')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
     implementation 'com.github.szugyi:Android-CircleMenu:2.0.0'
     implementation "org.jetbrains.anko:anko:$anko_version"
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
     implementation 'com.github.florent37:android-slidr:1.0.3'
+    implementation 'me.tankery.lib:circularSeekBar:1.1.7'
     implementation('com.github.bumptech.glide:glide:4.0.0') {
         exclude group: "com.android.support"
     }
@@ -42,6 +43,7 @@ dependencies {
     implementation 'com.akexorcist:RoundCornerProgressBar:2.0.3'
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation 'com.evernote:android-job:1.2.6'
+    implementation 'com.afollestad.material-dialogs:core:2.0.0-rc5'
     testImplementation 'junit:junit:4.12'
 }
 kotlin {

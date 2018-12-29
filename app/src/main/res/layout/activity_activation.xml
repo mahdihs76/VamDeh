@@ -17,27 +17,27 @@
             android:id="@+id/digit1"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="7dp" />
+            android:layout_marginStart="10dp" />
 
         <ir.sharif.vamdeh.view.edittext.UnoOneDigitEditText
             android:id="@+id/digit2"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="7dp"
+            android:layout_marginStart="10dp"
             android:layout_toEndOf="@id/digit1" />
 
         <ir.sharif.vamdeh.view.edittext.UnoOneDigitEditText
             android:id="@+id/digit3"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="7dp"
+            android:layout_marginStart="10dp"
             android:layout_toEndOf="@id/digit2" />
 
         <ir.sharif.vamdeh.view.edittext.UnoOneDigitEditText
             android:id="@+id/digit4"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="7dp"
+            android:layout_marginStart="10dp"
             android:layout_toEndOf="@id/digit3" />
 
     </RelativeLayout>

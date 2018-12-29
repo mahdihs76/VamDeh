@@ -1,5 +1,7 @@
 package ir.sharif.vamdeh.webservices.base;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -83,6 +85,7 @@ public class MyRetrofit {
 
     private String getToken() {
         String key = WebservicePrefSetting.getInstanceWithoutContext().getToken();
+        System.out.println("WSToken -> " + " token " + key);
         return "token " + key;
     }
 

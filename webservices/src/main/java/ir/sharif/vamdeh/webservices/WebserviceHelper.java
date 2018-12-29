@@ -73,6 +73,7 @@ public class WebserviceHelper {
         RegistrationProcess process = new RegistrationProcess(username, password1, password2);
         RegistrationResponse response = process.process();
         WebservicePrefSetting.getInstance(context).saveToken(response.getKey());
+        WebservicePrefSetting.getInstance(context).setRegister(true);
         return response;
     }
 

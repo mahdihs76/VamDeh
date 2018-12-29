@@ -1,0 +1,63 @@
+<RelativeLayout android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="12dp"
+    android:paddingTop="12dp"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:background="@drawable/slider_bg"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <me.tankery.lib.circularseekbar.CircularSeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        app:cs_circle_color="@color/trans"
+        app:cs_circle_progress_color="@color/lightGreen"
+        app:cs_circle_stroke_width="16dp"
+        app:cs_max = "1000"
+        app:cs_circle_style="round"
+        app:cs_pointer_color="@color/white"
+        app:cs_pointer_stroke_width="18dp" />
+
+    <ImageView
+        android:layout_width="145dp"
+        android:layout_height="145dp"
+        android:layout_below="@id/seekBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-150dp"
+        android:src="@mipmap/slider_bg"
+        android:translationZ="-1dp" />
+
+    <RelativeLayout
+        android:id="@+id/amountLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/amountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/amountLabel"
+            android:layout_below="@id/amountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="تومان"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -28,8 +28,9 @@ class ActivationActivity : BaseActivityJobSupport() {
         submit.onClick { activateUser(phone, getInLineEditTexts(vCodeEditTexts)) }
     }
 
-    private fun activateUser(phone: String, code: String) =
-            scheduleJob(SendVerificationCodeJob.TAG, getPhoneAndCodeExtras(phone, code))
+    private fun activateUser(phone: String, code: String) {
+        scheduleJob(SendVerificationCodeJob.TAG, getPhoneAndCodeExtras(phone, code))
+    }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEvent(event: SendVerificationCodeEvent) {
