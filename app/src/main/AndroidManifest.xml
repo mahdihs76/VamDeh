@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ir.sharif.vamdeh">
 
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:name="ir.sharif.MyApplication"
         android:allowBackup="true"
@@ -21,7 +23,8 @@
         <activity android:name=".activity.before_main.ActivationActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".activity.MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait">
+        </activity>
         <activity android:name=".activity.operations.LoansActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".activity.ProfileActivity"

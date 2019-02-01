@@ -7,6 +7,6 @@ package ir.sharif.vamdeh.utils
 const val IRANIAN_PRE_CODE = "98"
 
 fun isValidPhone(phone: String) = Regex(IRANIAN_PHONE_REGEX).matches(phone)
-fun normalizePhone(phone: String) =
+fun normalizePhone(phone: String) = phone/*
         if (isValidPhone(phone).not() || phone.startsWith(IRANIAN_PRE_CODE)) phone
-        else IRANIAN_PRE_CODE.plus(phone.trimStart('0'))
+        else IRANIAN_PRE_CODE.plus(phone.trimStart('0'))*/

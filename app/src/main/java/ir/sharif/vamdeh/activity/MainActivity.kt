@@ -30,7 +30,7 @@ class MainActivity : BaseActivityJobSupport() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        login()
+//        login()
         initCircularMenu()
         profileImage.onClick { gotoProfile() }
         Log.e("TAG", WebservicePrefSetting.getInstance(this).token)
