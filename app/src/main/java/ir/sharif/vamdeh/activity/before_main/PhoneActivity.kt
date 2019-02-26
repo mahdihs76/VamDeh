@@ -36,7 +36,8 @@ class PhoneActivity : BaseActivityJobSupport() {
 
     private fun login(phone: String) {
         if (isValidPhone(phone)) {
-            scheduleJob(VerificationJob.TAG, getPhoneExtras(phone))
+            gotoActivation(phone)
+//            scheduleJob(VerificationJob.TAG, getPhoneExtras(phone))
         } else {
             toastInvalidPhone()
         }

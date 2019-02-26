@@ -29,7 +29,8 @@ class ActivationActivity : BaseActivityJobSupport() {
     }
 
     private fun activateUser(phone: String, code: String) {
-        scheduleJob(SendVerificationCodeJob.TAG, getPhoneAndCodeExtras(phone, code))
+        gotoRegister()
+//        scheduleJob(SendVerificationCodeJob.TAG, getPhoneAndCodeExtras(phone, code))
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

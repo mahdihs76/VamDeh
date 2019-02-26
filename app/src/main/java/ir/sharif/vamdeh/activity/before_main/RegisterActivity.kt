@@ -27,7 +27,8 @@ class RegisterActivity : BaseActivityJobSupport() {
 
     private fun register(pass1: String, pass2: String){
         if(pass1 == pass2) {
-            scheduleJob(RegisterJob.TAG, getPasswordExtras(pass1))
+            gotoMainPage()
+//            scheduleJob(RegisterJob.TAG, getPasswordExtras(pass1))
         }
         else toastInvalidPassword()
     }

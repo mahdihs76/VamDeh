@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="icons">
+        <item>@drawable/installment_page</item>
+        <item>@drawable/certified</item>
+        <item>@drawable/trusted</item>
+        <item>@drawable/apply_loan</item>
+        <item>@drawable/lend_loan</item>
+    </array>
+    <array name="colors">
+        <item>@color/menuColor</item>
+        <item>@color/menuColor</item>
+        <item>@color/menuColor</item>
+        <item>@color/menuColor</item>
+        <item>@color/menuColor</item>
+    </array>
+</resources>
