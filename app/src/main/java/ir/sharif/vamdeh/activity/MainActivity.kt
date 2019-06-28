@@ -32,6 +32,7 @@ class MainActivity : BaseActivityJobSupport() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initCircularMenu()
+        getMyScores()
         profileImage.setOnClickListener { gotoProfile() }
     }
 
@@ -52,8 +53,6 @@ class MainActivity : BaseActivityJobSupport() {
         sweatHeartRate.text = rateModel.sweatHeartRate.toString()
         loanRate.text = rateModel.loanRate.toString()
     }
-
-
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEvent(event: GetMyScoresEvent) = updateData(event.rateModel)

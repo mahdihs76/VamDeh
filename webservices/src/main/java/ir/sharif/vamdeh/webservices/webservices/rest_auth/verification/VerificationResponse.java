@@ -6,14 +6,21 @@ import ir.sharif.vamdeh.webservices.base.BaseResponse;
 
 public class VerificationResponse extends BaseResponse {
 
-    @SerializedName("key")
-    private String key;
+    @SerializedName("token")
+    private String token;
+    @SerializedName("registered_user")
+    private boolean registeredUser;
 
-    public VerificationResponse(String key) {
-        this.key = key;
+    VerificationResponse(String token, boolean registeredUser){
+        this.token = token;
+        this.registeredUser = registeredUser;
     }
 
-    public String getKey() {
-        return key;
+    public String getToken() {
+        return token;
+    }
+
+    public boolean isRegisteredUser() {
+        return registeredUser;
     }
 }

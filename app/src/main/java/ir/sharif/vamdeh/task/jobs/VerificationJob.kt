@@ -1,8 +1,9 @@
 package ir.sharif.vamdeh.task.jobs
 
 import com.evernote.android.job.Job
-import com.evernote.android.job.JobRequest
-import com.evernote.android.job.util.support.PersistableBundleCompat
+import ir.sharif.vamdeh.cache.CacheConstants
+import ir.sharif.vamdeh.cache.defaultCache
+import ir.sharif.vamdeh.cache.set
 import ir.sharif.vamdeh.task.JobConstants
 import ir.sharif.vamdeh.task.events.VerificationErrorEvent
 import ir.sharif.vamdeh.task.events.VerificationEvent
@@ -21,8 +22,9 @@ class VerificationJob : Job() {
     override fun onRunJob(params: Params): Result {
         val phone = normalizePhone(params.extras.getString(JobConstants.PHONE_NUMBER, ""))
         return try{
-            WebserviceHelper.verification(phone)
-            EventBus.getDefault().post(VerificationEvent(phone))
+            val response = WebserviceHelper.verification(phone)
+            if (response.isRegisteredUser) defaultCache()[CacheConstants.KEY_PHONE] = phone
+            EventBus.getDefault().post(VerificationEvent(phone, response.isRegisteredUser))
             Result.SUCCESS
         } catch (e: WebserviceException){
             EventBus.getDefault().post(VerificationErrorEvent(e.message!!))

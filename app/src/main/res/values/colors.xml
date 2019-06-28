@@ -18,5 +18,6 @@
     <color name="lightGreen">#56E392</color>
     <color name="strongGreen">#0c8c42</color>
     <color name="menuColor">#D5D5DE</color>
+    <color name="gray">#6effffff</color>
 
 </resources>

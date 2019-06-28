@@ -22,7 +22,7 @@ class RegisterActivity : BaseActivityJobSupport() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-        register.onClick { register(password1.text.toString(), password2.text.toString()) }
+        register.setOnClickListener { register(password1.text.toString(), password2.text.toString()) }
     }
 
     private fun register(pass1: String, pass2: String){

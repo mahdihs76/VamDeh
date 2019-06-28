@@ -1,11 +1,14 @@
 package ir.sharif.vamdeh.activity.before_main
 
 import android.os.Bundle
+import android.view.View
+import com.github.ybq.android.spinkit.style.CubeGrid
 import ir.sharif.vamdeh.R
 import ir.sharif.vamdeh.activity.base.BaseActivityJobSupport
 import ir.sharif.vamdeh.cache.CacheConstants
 import ir.sharif.vamdeh.cache.defaultCache
 import ir.sharif.vamdeh.cache.get
+import ir.sharif.vamdeh.cache.set
 import ir.sharif.vamdeh.helper.*
 import ir.sharif.vamdeh.task.events.VerificationErrorEvent
 import ir.sharif.vamdeh.task.events.VerificationEvent
@@ -22,6 +25,7 @@ class PhoneActivity : BaseActivityJobSupport() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_phone)
+        spinKit.setIndeterminateDrawable(CubeGrid())
         decideToOpenApplication()
         submit.setOnClickListener { login(phoneNumber.text.toString()) }
     }
@@ -38,6 +42,7 @@ class PhoneActivity : BaseActivityJobSupport() {
 
     private fun login(phone: String) {
         if (isValidPhone(phone)) {
+            showLoading()
             scheduleJob(VerificationJob.TAG, getPhoneExtras(phone))
         } else {
             toastInvalidPhone()
@@ -45,8 +50,19 @@ class PhoneActivity : BaseActivityJobSupport() {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onEvent(event: VerificationEvent) = gotoActivation(event.phone)
+    fun onEvent(event: VerificationEvent) = hideLoading().also {
+        if (event.registeredUser) gotoLoginPage() else gotoActivation(event.phone)
+    }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onEvent(event: VerificationErrorEvent) = toast(event.error)
+    fun onEvent(event: VerificationErrorEvent) = hideLoading().also { toast(event.error) }
+
+    private fun showLoading() {
+        spinKit.visibility = View.VISIBLE
+    }
+
+    private fun hideLoading() {
+        spinKit.visibility = View.GONE
+    }
 }
+
