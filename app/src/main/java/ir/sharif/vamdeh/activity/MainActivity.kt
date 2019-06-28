@@ -31,13 +31,9 @@ class MainActivity : BaseActivityJobSupport() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        login()
         initCircularMenu()
-        profileImage.onClick { gotoProfile() }
-        Log.e("TAG", WebservicePrefSetting.getInstance(this).token)
+        profileImage.setOnClickListener { gotoProfile() }
     }
-
-    private fun login() = scheduleJob(LoginJob.TAG)
 
     private fun getMyScores() = scheduleJob(GetMyScoresJob.TAG)
 
@@ -57,15 +53,7 @@ class MainActivity : BaseActivityJobSupport() {
         loanRate.text = rateModel.loanRate.toString()
     }
 
-    private fun loginFailed(){
-        defaultCache()[CacheConstants.KEY_IS_REGISTER] = false
-        defaultCache()[CacheConstants.KEY_PHONE] = null
-        toastLoginFailed()
-        gotoPhonePage()
-    }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onEvent(event: LoginEvent) : Any = if (event.successful) getMyScores() else loginFailed()
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEvent(event: GetMyScoresEvent) = updateData(event.rateModel)

@@ -23,7 +23,7 @@ class PhoneActivity : BaseActivityJobSupport() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_phone)
         decideToOpenApplication()
-        submit.onClick { login(phoneNumber.text.toString()) }
+        submit.setOnClickListener { login(phoneNumber.text.toString()) }
     }
 
     private fun decideToOpenApplication() {
@@ -32,7 +32,7 @@ class PhoneActivity : BaseActivityJobSupport() {
 
         val hasPhone = !phoneNumber.isNullOrEmpty()
 
-        if (isRegister && hasPhone) gotoMainPage()
+        if (isRegister && hasPhone) gotoLoginPage()
         else if (hasPhone) gotoRegister()
     }
 

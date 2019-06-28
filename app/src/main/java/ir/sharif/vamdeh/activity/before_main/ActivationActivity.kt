@@ -7,9 +7,9 @@ import ir.sharif.vamdeh.cache.CacheConstants
 import ir.sharif.vamdeh.cache.defaultCache
 import ir.sharif.vamdeh.cache.set
 import ir.sharif.vamdeh.helper.*
-import ir.sharif.vamdeh.task.events.SendVerificationCodeErrorEvent
-import ir.sharif.vamdeh.task.events.SendVerificationCodeEvent
-import ir.sharif.vamdeh.task.jobs.SendVerificationCodeJob
+import ir.sharif.vamdeh.task.events.SendVerificationErrorEvent
+import ir.sharif.vamdeh.task.events.SendVerificationEvent
+import ir.sharif.vamdeh.task.jobs.SendVerificationJob
 import ir.sharif.vamdeh.utils.getInLineEditTexts
 import ir.sharif.vamdeh.utils.handleInLineEditTextFocus
 import kotlinx.android.synthetic.main.activity_activation.*
@@ -27,23 +27,21 @@ class ActivationActivity : BaseActivityJobSupport() {
         val phone = intent.getStringExtra(KEY_PHONE) ?: ""
 
         handleInLineEditTextFocus(1, vCodeEditTexts)
-        submit.onClick { activateUser(phone, getInLineEditTexts(vCodeEditTexts)) }
+        submit.setOnClickListener { activateUser(phone, getInLineEditTexts(vCodeEditTexts)) }
     }
 
     private fun activateUser(phone: String, code: String) {
-        scheduleJob(SendVerificationCodeJob.TAG, getPhoneAndCodeExtras(phone, code))
+        scheduleJob(SendVerificationJob.TAG, getPhoneAndCodeExtras(phone, code))
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onEvent(event: SendVerificationCodeEvent) {
-        defaultCache()[CacheConstants.KEY_PHONE] = event.phone
-        defaultCache()[CacheConstants.KEY_CODE] = event.code
-        gotoRegister()
+    fun onEvent(event: SendVerificationEvent) {
+            defaultCache()[CacheConstants.KEY_PHONE] = event.phone
+            defaultCache()[CacheConstants.KEY_CODE] = event.code
+            gotoRegister()
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onEvent(event: SendVerificationCodeErrorEvent) {
-        toast(event.error)
-    }
+    fun onEvent(event: SendVerificationErrorEvent) = toast(event.error)
 
 }

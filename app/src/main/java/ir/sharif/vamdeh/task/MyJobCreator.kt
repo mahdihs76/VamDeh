@@ -9,7 +9,7 @@ import ir.sharif.vamdeh.task.jobs.*
 class MyJobCreator : JobCreator {
     override fun create(tag: String) = when (tag) {
         VerificationJob.TAG -> VerificationJob()
-        SendVerificationCodeJob.TAG -> SendVerificationCodeJob()
+        SendVerificationJob.TAG -> SendVerificationJob()
         RegisterJob.TAG -> RegisterJob()
         GetMyScoresJob.TAG-> GetMyScoresJob()
         CreateMyLoanJob.TAG-> CreateMyLoanJob()

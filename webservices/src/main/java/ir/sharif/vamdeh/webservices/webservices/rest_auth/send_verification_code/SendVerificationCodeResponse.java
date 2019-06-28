@@ -8,6 +8,8 @@ public class SendVerificationCodeResponse extends BaseResponse {
 
     @SerializedName("token")
     private String token;
+    @SerializedName("registered_user")
+    private boolean registeredUser;
 
     public SendVerificationCodeResponse(String token) {
         this.token= token;
@@ -15,5 +17,9 @@ public class SendVerificationCodeResponse extends BaseResponse {
 
     public String getToken() {
         return token;
+    }
+
+    public boolean isRegisteredUser() {
+        return registeredUser;
     }
 }

@@ -20,10 +20,10 @@ class LoginJob : Job() {
     companion object { const val TAG = "login_tag" }
 
     override fun onRunJob(params: Params): Result {
+        val password = params.extras.getString(JobConstants.PASSWORD, "")
         return try {
             WebserviceHelper.login(ApplicationContext.context,
-                    normalizePhone(defaultCache()[CacheConstants.KEY_PHONE]!!),
-                    defaultCache()[CacheConstants.KEY_PASSWORD])
+                    normalizePhone(defaultCache()[CacheConstants.KEY_PHONE]!!), password)
             EventBus.getDefault().post(LoginEvent(true))
             Result.SUCCESS
         } catch (e: Exception) {

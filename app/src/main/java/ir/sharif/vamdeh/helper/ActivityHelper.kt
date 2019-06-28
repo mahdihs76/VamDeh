@@ -3,6 +3,7 @@ package ir.sharif.vamdeh.helper
 import android.app.Activity
 import ir.sharif.vamdeh.activity.*
 import ir.sharif.vamdeh.activity.before_main.ActivationActivity
+import ir.sharif.vamdeh.activity.before_main.LoginActivity
 import ir.sharif.vamdeh.activity.before_main.PhoneActivity
 import ir.sharif.vamdeh.activity.before_main.RegisterActivity
 import ir.sharif.vamdeh.activity.operations.*
@@ -20,6 +21,7 @@ const val KEY_PHONE = "key_phone"
 fun Activity.gotoActivation() = startActivity<ActivationActivity>()
 fun Activity.gotoActivation(phone:String) = startActivity<ActivationActivity>(KEY_PHONE to phone).apply { finish() }
 fun Activity.gotoMainPage() = startActivity<MainActivity>().apply { finish() }
+fun Activity.gotoLoginPage() = startActivity<LoginActivity>().apply { finish() }
 fun Activity.gotoLoans() = startActivity<LoansActivity>()
 fun Activity.gotoProfile() = startActivity<ProfileActivity>()
 fun Activity.gotoLending() = startActivity<LendingActivity>()

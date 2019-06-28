@@ -22,7 +22,6 @@ fun scheduleJob(tag: String, extras: PersistableBundleCompat) = JobRequest.Build
 // need refactor
 
 fun getPhoneExtras(phone: String) = PersistableBundleCompat().apply { putString(JobConstants.PHONE_NUMBER, phone) }
-fun getCodeExtras(code: String) = PersistableBundleCompat().apply { putString(JobConstants.VERIFICATION_CODE, code) }
 fun getPasswordExtras(password: String) = PersistableBundleCompat().apply { putString(JobConstants.PASSWORD, password) }
 fun getRegistrationExtras(code: String, password: String) = PersistableBundleCompat().apply {
     putString(JobConstants.VERIFICATION_CODE, code)
