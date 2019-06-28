@@ -9,7 +9,7 @@ public class WebserviceAdresses {
     public static final String CREATE_PROFILE = "v1/profile/create_my_profile/";
     public static final String GET_MY_USER_INFO = "v1/user/get_my_user_info/";
     public static final String CREATE_TRUST_REQUEST = "v1/trust_relation/create_trust_request/";
-    public static final String REGISTRATION = "rest-auth/registration/";
+    public static final String REGISTRATION = "v1/registration/registration/";
     public static final String GET_TRUST_REQUESTS_AS_REQUESTER = "v1/trust_relation/get_trust_requests_as_requester/";
     public static final String GET_TRUST_REQUESTS_AS_ACCEPTOR = "v1/trust_relation/get_trust_requests_as_acceptor/";
     public static final String EVALUATE_TRUST_REQUEST = "v1/trust_relation/evaluate_trust_request/";

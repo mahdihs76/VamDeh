@@ -7,16 +7,16 @@ import ir.sharif.vamdeh.cache.CacheConstants
 import ir.sharif.vamdeh.cache.defaultCache
 import ir.sharif.vamdeh.cache.get
 import ir.sharif.vamdeh.cache.set
-import ir.sharif.vamdeh.helper.getPasswordExtras
-import ir.sharif.vamdeh.helper.gotoMainPage
-import ir.sharif.vamdeh.helper.scheduleJob
-import ir.sharif.vamdeh.helper.toastInvalidPassword
+import ir.sharif.vamdeh.helper.*
+import ir.sharif.vamdeh.task.events.RegisterErrorEvent
 import ir.sharif.vamdeh.task.events.RegisterEvent
 import ir.sharif.vamdeh.task.jobs.RegisterJob
 import kotlinx.android.synthetic.main.activity_register.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.toast
+
 class RegisterActivity : BaseActivityJobSupport() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,8 +27,7 @@ class RegisterActivity : BaseActivityJobSupport() {
 
     private fun register(pass1: String, pass2: String){
         if(pass1 == pass2) {
-            gotoMainPage()
-//            scheduleJob(RegisterJob.TAG, getPasswordExtras(pass1))
+            scheduleJob(RegisterJob.TAG, getRegistrationExtras(defaultCache()[CacheConstants.KEY_CODE]!! , pass1))
         }
         else toastInvalidPassword()
     }
@@ -38,6 +37,11 @@ class RegisterActivity : BaseActivityJobSupport() {
         defaultCache()[CacheConstants.KEY_IS_REGISTER] = true
         defaultCache()[CacheConstants.KEY_PASSWORD] = event.password
         gotoMainPage()
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onEvent(event: RegisterErrorEvent) {
+        toast(event.error)
     }
 
 }

@@ -6,6 +6,9 @@ import ir.sharif.vamdeh.activity.before_main.ActivationActivity
 import ir.sharif.vamdeh.activity.before_main.PhoneActivity
 import ir.sharif.vamdeh.activity.before_main.RegisterActivity
 import ir.sharif.vamdeh.activity.operations.*
+import org.jetbrains.anko.clearTop
+import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.singleTop
 import org.jetbrains.anko.startActivity
 
 /**
@@ -15,13 +18,13 @@ import org.jetbrains.anko.startActivity
 const val KEY_PHONE = "key_phone"
 
 fun Activity.gotoActivation() = startActivity<ActivationActivity>()
-fun Activity.gotoActivation(phone:String) = startActivity<ActivationActivity>(KEY_PHONE to phone)
+fun Activity.gotoActivation(phone:String) = startActivity<ActivationActivity>(KEY_PHONE to phone).apply { finish() }
 fun Activity.gotoMainPage() = startActivity<MainActivity>().apply { finish() }
 fun Activity.gotoLoans() = startActivity<LoansActivity>()
 fun Activity.gotoProfile() = startActivity<ProfileActivity>()
 fun Activity.gotoLending() = startActivity<LendingActivity>()
 fun Activity.gotoLoanRequest() = startActivity<LoanRequestActivity>()
-fun Activity.gotoRegister() = startActivity<RegisterActivity>()
+fun Activity.gotoRegister() = startActivity<RegisterActivity>().apply { finish() }
 fun Activity.gotoPhonePage() = startActivity<PhoneActivity>().apply { finish() }
 fun Activity.gotoCertifiedPage() = startActivity<CertifiedActivity>()
 fun Activity.gotoTrustedPage() = startActivity<TrustedActivity>()

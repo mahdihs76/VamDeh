@@ -11,8 +11,8 @@ public class RegistrationProcess extends BaseProcess {
 
     private RegistrationRequest request;
 
-    public RegistrationProcess(String username, String password1, String password2) {
-        this.request = new RegistrationRequest(username, password1, password2);
+    public RegistrationProcess(String username, String token, String password) {
+        this.request = new RegistrationRequest(username, token, password);
     }
 
     @Override

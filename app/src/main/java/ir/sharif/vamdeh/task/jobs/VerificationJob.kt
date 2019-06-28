@@ -4,9 +4,11 @@ import com.evernote.android.job.Job
 import com.evernote.android.job.JobRequest
 import com.evernote.android.job.util.support.PersistableBundleCompat
 import ir.sharif.vamdeh.task.JobConstants
+import ir.sharif.vamdeh.task.events.VerificationErrorEvent
 import ir.sharif.vamdeh.task.events.VerificationEvent
 import ir.sharif.vamdeh.utils.normalizePhone
 import ir.sharif.vamdeh.webservices.WebserviceHelper
+import ir.sharif.vamdeh.webservices.base.WebserviceException
 import org.greenrobot.eventbus.EventBus
 
 /**
@@ -18,9 +20,14 @@ class VerificationJob : Job() {
 
     override fun onRunJob(params: Params): Result {
         val phone = normalizePhone(params.extras.getString(JobConstants.PHONE_NUMBER, ""))
-        WebserviceHelper.verification(phone)
-        EventBus.getDefault().post(VerificationEvent(phone))
-        return Result.SUCCESS
+        return try{
+            WebserviceHelper.verification(phone)
+            EventBus.getDefault().post(VerificationEvent(phone))
+            Result.SUCCESS
+        } catch (e: WebserviceException){
+            EventBus.getDefault().post(VerificationErrorEvent(e.message!!))
+            Result.FAILURE
+        }
     }
 
 }

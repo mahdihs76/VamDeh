@@ -69,8 +69,8 @@ public class WebserviceHelper {
         return process.process();
     }
 
-    public static RegistrationResponse register(Context context, String username, String password1, String password2) throws IOException, WebserviceException {
-        RegistrationProcess process = new RegistrationProcess(username, password1, password2);
+    public static RegistrationResponse register(Context context, String username, String token, String password) throws IOException, WebserviceException {
+        RegistrationProcess process = new RegistrationProcess(username, token, password);
         RegistrationResponse response = process.process();
         WebservicePrefSetting.getInstance(context).saveToken(response.getKey());
         WebservicePrefSetting.getInstance(context).setRegister(true);

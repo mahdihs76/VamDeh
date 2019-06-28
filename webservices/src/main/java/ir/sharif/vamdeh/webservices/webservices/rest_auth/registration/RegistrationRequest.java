@@ -7,16 +7,16 @@ import ir.sharif.vamdeh.webservices.base.WebserviceConstants;
 
 public class RegistrationRequest extends BaseRequest {
 
-    @SerializedName(WebserviceConstants.USERNAME)
+    @SerializedName(WebserviceConstants.PHONE_NUMBER)
     private String userName;
-    @SerializedName(WebserviceConstants.PASSWORD1)
-    private String password1;
-    @SerializedName(WebserviceConstants.PASSWORD2)
-    private String password2;
+    @SerializedName(WebserviceConstants.TOKEN)
+    private String token;
+    @SerializedName(WebserviceConstants.PASSWORD)
+    private String password;
 
-    public RegistrationRequest(String userName, String password1, String password2) {
+    public RegistrationRequest(String userName, String token, String password) {
         this.userName = userName;
-        this.password1 = password1;
-        this.password2 = password2;
+        this.token = token;
+        this.password = password;
     }
 }

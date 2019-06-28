@@ -7,6 +7,7 @@ import ir.sharif.vamdeh.cache.CacheConstants
 import ir.sharif.vamdeh.cache.defaultCache
 import ir.sharif.vamdeh.cache.get
 import ir.sharif.vamdeh.helper.*
+import ir.sharif.vamdeh.task.events.VerificationErrorEvent
 import ir.sharif.vamdeh.task.events.VerificationEvent
 import ir.sharif.vamdeh.task.jobs.VerificationJob
 import ir.sharif.vamdeh.utils.isValidPhone
@@ -14,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_phone.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.toast
 
 class PhoneActivity : BaseActivityJobSupport() {
 
@@ -36,8 +38,7 @@ class PhoneActivity : BaseActivityJobSupport() {
 
     private fun login(phone: String) {
         if (isValidPhone(phone)) {
-            gotoActivation(phone)
-//            scheduleJob(VerificationJob.TAG, getPhoneExtras(phone))
+            scheduleJob(VerificationJob.TAG, getPhoneExtras(phone))
         } else {
             toastInvalidPhone()
         }
@@ -46,4 +47,6 @@ class PhoneActivity : BaseActivityJobSupport() {
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEvent(event: VerificationEvent) = gotoActivation(event.phone)
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onEvent(event: VerificationErrorEvent) = toast(event.error)
 }

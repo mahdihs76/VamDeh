@@ -6,8 +6,10 @@ import ir.sharif.vamdeh.cache.CacheConstants
 import ir.sharif.vamdeh.cache.defaultCache
 import ir.sharif.vamdeh.cache.get
 import ir.sharif.vamdeh.task.JobConstants
+import ir.sharif.vamdeh.task.events.RegisterErrorEvent
 import ir.sharif.vamdeh.task.events.RegisterEvent
 import ir.sharif.vamdeh.webservices.WebserviceHelper
+import ir.sharif.vamdeh.webservices.base.WebserviceException
 import org.greenrobot.eventbus.EventBus
 
 /**
@@ -19,9 +21,15 @@ class RegisterJob : Job() {
 
     override fun onRunJob(params: Params): Result {
         val password = params.extras.getString(JobConstants.PASSWORD, "")
-        WebserviceHelper.register(ApplicationContext.context, defaultCache()[CacheConstants.KEY_PHONE], password, password)
-        EventBus.getDefault().post(RegisterEvent(password))
-        return Result.SUCCESS
+        val code = params.extras.getString(JobConstants.VERIFICATION_CODE, "")
+        return try {
+            WebserviceHelper.register(ApplicationContext.context, defaultCache()[CacheConstants.KEY_PHONE] , code, password)
+            EventBus.getDefault().post(RegisterEvent(password))
+            Result.SUCCESS
+        } catch (e: WebserviceException) {
+            EventBus.getDefault().post(RegisterErrorEvent(e.message + ""))
+            Result.FAILURE
+        }
     }
 
 }

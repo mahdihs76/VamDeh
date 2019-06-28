@@ -24,6 +24,10 @@ fun scheduleJob(tag: String, extras: PersistableBundleCompat) = JobRequest.Build
 fun getPhoneExtras(phone: String) = PersistableBundleCompat().apply { putString(JobConstants.PHONE_NUMBER, phone) }
 fun getCodeExtras(code: String) = PersistableBundleCompat().apply { putString(JobConstants.VERIFICATION_CODE, code) }
 fun getPasswordExtras(password: String) = PersistableBundleCompat().apply { putString(JobConstants.PASSWORD, password) }
+fun getRegistrationExtras(code: String, password: String) = PersistableBundleCompat().apply {
+    putString(JobConstants.VERIFICATION_CODE, code)
+    putString(JobConstants.PASSWORD, password)
+}
 fun getMyLoanExtras(amount: Int, timeToReturnMoney: Int, status: String) = PersistableBundleCompat().apply {
     putInt(JobConstants.AMOUNT, amount)
     putInt(JobConstants.TIME_TO_RETURN_MONEY, timeToReturnMoney)

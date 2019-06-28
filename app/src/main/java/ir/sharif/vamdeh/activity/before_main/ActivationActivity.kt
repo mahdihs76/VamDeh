@@ -7,6 +7,7 @@ import ir.sharif.vamdeh.cache.CacheConstants
 import ir.sharif.vamdeh.cache.defaultCache
 import ir.sharif.vamdeh.cache.set
 import ir.sharif.vamdeh.helper.*
+import ir.sharif.vamdeh.task.events.SendVerificationCodeErrorEvent
 import ir.sharif.vamdeh.task.events.SendVerificationCodeEvent
 import ir.sharif.vamdeh.task.jobs.SendVerificationCodeJob
 import ir.sharif.vamdeh.utils.getInLineEditTexts
@@ -15,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_activation.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import org.jetbrains.anko.toast
 
 class ActivationActivity : BaseActivityJobSupport() {
 
@@ -29,14 +31,19 @@ class ActivationActivity : BaseActivityJobSupport() {
     }
 
     private fun activateUser(phone: String, code: String) {
-        gotoRegister()
-//        scheduleJob(SendVerificationCodeJob.TAG, getPhoneAndCodeExtras(phone, code))
+        scheduleJob(SendVerificationCodeJob.TAG, getPhoneAndCodeExtras(phone, code))
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEvent(event: SendVerificationCodeEvent) {
         defaultCache()[CacheConstants.KEY_PHONE] = event.phone
+        defaultCache()[CacheConstants.KEY_CODE] = event.code
         gotoRegister()
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onEvent(event: SendVerificationCodeErrorEvent) {
+        toast(event.error)
     }
 
 }
