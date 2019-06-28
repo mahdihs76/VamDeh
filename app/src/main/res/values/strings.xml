@@ -38,4 +38,6 @@
     <string name="login_page_title">فعالسازی اکانت شما با موفقیت انجام شد \n  رمز عبوری برای ورود به اکانت خود انتخاب کنید</string>
     <string name="add_certified_person">افزودن فرد</string>
     <string name="add_certified_person_description">تا چه میزان به صورت ماهانه ایشان را ضمانت میکنید؟</string>
+    <string name="phone_number_error">شماره تلفن وارد شده صحیح نیست</string>
+    <string name="error">خطا</string>
 </resources>

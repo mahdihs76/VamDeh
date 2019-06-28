@@ -29,9 +29,9 @@ class LoanRequestActivity : BaseActivityJobSupport(), CircularSeekBar.OnCircular
         setContentView(R.layout.activity_loan_request)
         initUi()
         seekBar.setOnSeekBarChangeListener(this)
-        backImageView.onClick { onBackPressed() }
+        backImageView.setOnClickListener { onBackPressed() }
 
-        requestLoanButton.onClick { createMyLoan(amountTextView.text.toString().toInt(), 3 ,descriptionEditText.text.toString()) }
+        requestLoanButton.setOnClickListener { createMyLoan(amountTextView.text.toString().toInt(), 3 ,descriptionEditText.text.toString()) }
     }
     override fun onProgressChanged(circularSeekBar: CircularSeekBar?, progress: Float, fromUser: Boolean) {
         amountTextView.text = circularSeekBar?.progress!!.toInt().toString()
@@ -54,10 +54,10 @@ class LoanRequestActivity : BaseActivityJobSupport(), CircularSeekBar.OnCircular
         buttons.add(_6monthsPaymentButton)
         buttons.add(_3monthsPaymentButton)
         buttons.add(otherPaymentButton)
-        _12monthsPaymentButton.onClick { changeButtonBackground(0, buttons) }
-        _6monthsPaymentButton.onClick { changeButtonBackground(1, buttons) }
-        _3monthsPaymentButton.onClick { changeButtonBackground(2, buttons) }
-        otherPaymentButton.onClick { changeButtonBackground(3, buttons) }
+        _12monthsPaymentButton.setOnClickListener { changeButtonBackground(0, buttons) }
+        _6monthsPaymentButton.setOnClickListener{ changeButtonBackground(1, buttons) }
+        _3monthsPaymentButton.setOnClickListener { changeButtonBackground(2, buttons) }
+        otherPaymentButton.setOnClickListener { changeButtonBackground(3, buttons) }
 
 //        loanAmountSlider.max = 1000f
 //        loanAmountSlider.setMin(0f)
