@@ -29,8 +29,8 @@ class CertifiedActivity : AppCompatActivity() {
         recyclerView.layoutManager = GridLayoutManager(this, 3)
         recyclerView.adapter = CertifiedPersonAdapter(arrayOf(CertifiedPerson("مهدی حسن زاده", R.mipmap.me), CertifiedPerson("مهدی حسن زاده", R.mipmap.me), CertifiedPerson("مهدی حسن زاده", R.mipmap.me), CertifiedPerson("مهدی حسن زاده", R.mipmap.me), CertifiedPerson("مهدی حسن زاده", R.mipmap.me), CertifiedPerson("مهدی حسن زاده", R.mipmap.me), CertifiedPerson("مهدی حسن زاده", R.mipmap.me)))
 
-        addPerson.onClick { openContacts(PICK_CONTACT_CODE) }
-        backImageView.onClick { onBackPressed() }
+        addPerson.setOnClickListener { openContacts(PICK_CONTACT_CODE) }
+        backImageView.setOnClickListener { onBackPressed() }
     }
 
 

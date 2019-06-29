@@ -25,7 +25,6 @@ class UnoOneDigitEditText(context: Context, attributeSet: AttributeSet) : EditTe
         backgroundResource = R.drawable.digit_edit_text_bg
         gravity = CENTER
         textSize = 22F
-        inputType = TYPE_NUMBER_FLAG_DECIMAL
         filters = arrayOf(InputFilter.LengthFilter(1))
     }
 

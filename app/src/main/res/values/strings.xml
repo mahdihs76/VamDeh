@@ -40,4 +40,6 @@
     <string name="add_certified_person_description">تا چه میزان به صورت ماهانه ایشان را ضمانت میکنید؟</string>
     <string name="phone_number_error">شماره تلفن وارد شده صحیح نیست</string>
     <string name="error">خطا</string>
+    <string name="register_error">ثبت رمزعبور امکانپذیر نیست لطفا دوباره ثبتنام کنید</string>
+    <string name="login_error">خطایی در ورود به برنامه رخ داده است</string>
 </resources>

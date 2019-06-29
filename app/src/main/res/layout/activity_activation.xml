@@ -17,6 +17,7 @@
             android:id="@+id/digit1"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:inputType="numberDecimal"
             android:layout_marginStart="10dp" />
 
         <ir.sharif.vamdeh.view.edittext.UnoOneDigitEditText
@@ -24,6 +25,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="10dp"
+            android:inputType="numberDecimal"
             android:layout_toEndOf="@id/digit1" />
 
         <ir.sharif.vamdeh.view.edittext.UnoOneDigitEditText
@@ -31,6 +33,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="10dp"
+            android:inputType="numberDecimal"
             android:layout_toEndOf="@id/digit2" />
 
         <ir.sharif.vamdeh.view.edittext.UnoOneDigitEditText
@@ -38,6 +41,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="10dp"
+            android:inputType="numberDecimal"
             android:layout_toEndOf="@id/digit3" />
 
     </RelativeLayout>
@@ -53,7 +57,7 @@
     <com.github.ybq.android.spinkit.SpinKitView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/spinKit"
-        style="@style/SpinKitView"
+        style="@style/SpinKitView.CubeGrid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"

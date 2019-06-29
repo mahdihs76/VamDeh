@@ -25,11 +25,9 @@ class RegisterActivity : BaseActivityJobSupport() {
         register.setOnClickListener { register(password1.text.toString(), password2.text.toString()) }
     }
 
-    private fun register(pass1: String, pass2: String){
-        if(pass1 == pass2) {
-            scheduleJob(RegisterJob.TAG, getRegistrationExtras(defaultCache()[CacheConstants.KEY_CODE]!! , pass1))
-        }
-        else toastInvalidPassword()
+    private fun register(pass1: String, pass2: String) {
+        if (pass1 == pass2) scheduleJob(RegisterJob.TAG, getRegistrationExtras(defaultCache()[CacheConstants.KEY_CODE]!!, pass1))
+         else toastInvalidPassword()
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -40,9 +38,7 @@ class RegisterActivity : BaseActivityJobSupport() {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onEvent(event: RegisterErrorEvent) {
-        toast(event.error)
-    }
+    fun onEvent(event: RegisterErrorEvent) = toastError(event.error)
 
 }
 
