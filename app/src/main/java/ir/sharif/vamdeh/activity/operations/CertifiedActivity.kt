@@ -43,7 +43,7 @@ class CertifiedActivity : AppCompatActivity() {
                 MaterialDialog(this).show {
                     title(R.string.add_certified_person)
                     message(R.string.add_certified_person_description)
-                    input { dialog, text ->
+                    input { _, text ->
                         longToast(text)
                     }
                 }

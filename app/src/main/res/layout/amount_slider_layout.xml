@@ -25,8 +25,8 @@
         android:layout_height="145dp"
         android:layout_below="@id/seekBar"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="-150dp"
-        android:src="@mipmap/background"
+        android:layout_marginTop="-147dp"
+        android:src="@mipmap/slider_bg"
         android:translationZ="-1dp" />
 
     <RelativeLayout
