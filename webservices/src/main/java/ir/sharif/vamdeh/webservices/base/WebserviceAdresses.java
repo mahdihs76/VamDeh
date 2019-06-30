@@ -1,7 +1,7 @@
 package ir.sharif.vamdeh.webservices.base;
 
 public class WebserviceAdresses {
-    public static final String BASE_URL = "https://vianatest.herokuapp.com/";
+    public static final String BASE_URL = "https://biz-core.herokuapp.com/";
     public static final String VERIFICATION = "v1/verification_code/send_verification_token/";
     public static final String SEND_VERIFICATION_CODE = "v1/verification_code/verified_token/";
     public static final String GET_MY_SCORES = "v1/score/get_my_scores/";
@@ -25,4 +25,6 @@ public class WebserviceAdresses {
     public static final String GET_MY_LOAN_RELATIONS_AS_BORROWER = "v1/loan_relation/get_my_loan_relations_as_borrower/";
 
     public static final String LIST_MY_LOAN = "v1/loan_request/list_my_loan_requests/";
+    public static final String GET_MY_TRUSTED_PEOPLE_LIST = "v1/trust_relation/get_my_trusted_people_list/";
+    public static final String CREATE_TRUST_REQUEST_AS_TRUSTIER = "v1/trust_relation/create_trust_request_as_trustier/";
 }

@@ -13,4 +13,5 @@ object JobConstants {
     const val AMOUNT = "amount"
     const val TIME_TO_RETURN_MONEY = "time_to_return_money"
     const val STATUS = "status"
+    const val TRUST_VALUE = "trust_value"
 }

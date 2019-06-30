@@ -36,3 +36,8 @@ fun getPhoneAndCodeExtras(phone: String, code: String) = PersistableBundleCompat
     putString(JobConstants.PHONE_NUMBER, phone)
     putString(JobConstants.VERIFICATION_CODE, code)
 }
+
+fun getTrustRequestExtras(phone: String, trustValue: Int) = PersistableBundleCompat().apply {
+    putString(JobConstants.PHONE_NUMBER, phone)
+    putInt(JobConstants.TRUST_VALUE, trustValue)
+}

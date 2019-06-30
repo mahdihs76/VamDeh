@@ -14,6 +14,7 @@ class MyJobCreator : JobCreator {
         GetMyScoresJob.TAG-> GetMyScoresJob()
         CreateMyLoanJob.TAG-> CreateMyLoanJob()
         LoginJob.TAG -> LoginJob()
+        TrustRequestJob.TAG -> TrustRequestJob()
         else -> null
     }
 

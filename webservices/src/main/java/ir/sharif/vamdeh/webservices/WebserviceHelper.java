@@ -39,10 +39,14 @@ import ir.sharif.vamdeh.webservices.webservices.rest_auth.verification.Verificat
 import ir.sharif.vamdeh.webservices.webservices.rest_auth.verification.VerificationResponse;
 import ir.sharif.vamdeh.webservices.webservices.trust_relation.create_trust.CreateTrustProcess;
 import ir.sharif.vamdeh.webservices.webservices.trust_relation.create_trust.CreateTrustResponse;
+import ir.sharif.vamdeh.webservices.webservices.trust_relation.create_trust_request_as_trustier.CreateTrustRequestAsTrustierProcess;
+import ir.sharif.vamdeh.webservices.webservices.trust_relation.create_trust_request_as_trustier.CreateTrustRequestAsTrustierResponse;
 import ir.sharif.vamdeh.webservices.webservices.trust_relation.evaluate_trust_relation.EvaluateTrustRelationProcess;
 import ir.sharif.vamdeh.webservices.webservices.trust_relation.evaluate_trust_relation.EvaluateTrustRelationResponse;
 import ir.sharif.vamdeh.webservices.webservices.trust_relation.get_my_last_trust_relation_history.GetMyLastTrustRelationHistoryProcess;
 import ir.sharif.vamdeh.webservices.webservices.trust_relation.get_my_last_trust_relation_history.GetMyLastTrustRelationHistoryResponse;
+import ir.sharif.vamdeh.webservices.webservices.trust_relation.get_my_trusted_people_list.GetMyTrustedPeopleListProcess;
+import ir.sharif.vamdeh.webservices.webservices.trust_relation.get_my_trusted_people_list.GetMyTrustedPeopleListResponse;
 import ir.sharif.vamdeh.webservices.webservices.trust_relation.get_trust_requests_as_acceptor.GetTrustRequestsAsAcceptorProcess;
 import ir.sharif.vamdeh.webservices.webservices.trust_relation.get_trust_requests_as_acceptor.GetTrustRequestsAsAcceptorResponse;
 import ir.sharif.vamdeh.webservices.webservices.trust_relation.get_trust_requests_as_requeser.GetTrustRequestsAsRequesterProcess;
@@ -82,6 +86,16 @@ public class WebserviceHelper {
         LoginResponse response = process.process();
         WebservicePrefSetting.getInstance(context).saveToken(response.getKey());
         return response;
+    }
+
+    public static List<GetMyTrustedPeopleListResponse> getMyTrustedPeopleList() throws IOException, WebserviceException {
+        GetMyTrustedPeopleListProcess process = new GetMyTrustedPeopleListProcess();
+        return process.process();
+    }
+
+    public static CreateTrustRequestAsTrustierResponse createTrustRequestAsTrustier(String phoneNumber, int trustValue) throws IOException, WebserviceException {
+        CreateTrustRequestAsTrustierProcess process = new CreateTrustRequestAsTrustierProcess(phoneNumber, trustValue);
+        return process.process();
     }
 
     public static GetMyUserInfoResponse getMyUserInfo(Context context) throws IOException, WebserviceException {

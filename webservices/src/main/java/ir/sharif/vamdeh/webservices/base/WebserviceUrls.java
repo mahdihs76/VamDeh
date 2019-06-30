@@ -7,6 +7,9 @@ import ir.sharif.vamdeh.webservices.webservices.rest_auth.send_verification_code
 import ir.sharif.vamdeh.webservices.webservices.rest_auth.send_verification_code.SendVerificationCodeResponse;
 import ir.sharif.vamdeh.webservices.webservices.rest_auth.verification.VerificationRequest;
 import ir.sharif.vamdeh.webservices.webservices.rest_auth.verification.VerificationResponse;
+import ir.sharif.vamdeh.webservices.webservices.trust_relation.create_trust_request_as_trustier.CreateTrustRequestAsTrustierRequest;
+import ir.sharif.vamdeh.webservices.webservices.trust_relation.create_trust_request_as_trustier.CreateTrustRequestAsTrustierResponse;
+import ir.sharif.vamdeh.webservices.webservices.trust_relation.get_my_trusted_people_list.GetMyTrustedPeopleListResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -51,6 +54,12 @@ public interface WebserviceUrls {
 
     @GET(WebserviceAdresses.GET_MY_SCORES)
     Call<List<GetMyScoresResponse>> getMyScores();
+
+    @GET(WebserviceAdresses.GET_MY_TRUSTED_PEOPLE_LIST)
+    Call<List<GetMyTrustedPeopleListResponse>> getMyTrustedPeopleList();
+
+    @POST(WebserviceAdresses.CREATE_TRUST_REQUEST_AS_TRUSTIER)
+    Call<CreateTrustRequestAsTrustierResponse> createTrustRequestAsTrustier(@Body CreateTrustRequestAsTrustierRequest request);
 
     @POST(WebserviceAdresses.REGISTRATION)
     Call<RegistrationResponse> register(@Body RegistrationRequest request);
