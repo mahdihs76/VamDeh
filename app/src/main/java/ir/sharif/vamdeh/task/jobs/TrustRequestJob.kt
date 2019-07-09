@@ -8,9 +8,11 @@ import ir.sharif.vamdeh.cache.get
 import ir.sharif.vamdeh.task.JobConstants
 import ir.sharif.vamdeh.task.events.LoginEvent
 import ir.sharif.vamdeh.task.events.RegisterEvent
+import ir.sharif.vamdeh.task.events.TrustRequestErrorEvent
 import ir.sharif.vamdeh.task.events.TrustRequestEvent
 import ir.sharif.vamdeh.utils.normalizePhone
 import ir.sharif.vamdeh.webservices.WebserviceHelper
+import ir.sharif.vamdeh.webservices.base.WebserviceException
 import org.greenrobot.eventbus.EventBus
 
 /**
@@ -27,7 +29,8 @@ class TrustRequestJob : Job() {
             WebserviceHelper.createTrustRequestAsTrustier(normalizePhone(phoneNumber), trustValue)
             EventBus.getDefault().post(TrustRequestEvent())
             Result.SUCCESS
-        } catch (e: Exception) {
+        } catch (e: WebserviceException) {
+            EventBus.getDefault().post(TrustRequestErrorEvent(e.message + ""))
             Result.FAILURE
         }
     }

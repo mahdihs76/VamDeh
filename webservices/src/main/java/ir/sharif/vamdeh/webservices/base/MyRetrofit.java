@@ -68,19 +68,17 @@ public class MyRetrofit {
     }
 
     private void addAuthHeader(OkHttpClient.Builder client) {
-        if (WebservicePrefSetting.getInstanceWithoutContext().isRegister()) {
-            client.addInterceptor(new Interceptor() {
-                @Override
-                public Response intercept(Interceptor.Chain chain) throws IOException {
-                    Request original = chain.request();
-                    Request request = original.newBuilder()
-                            .addHeader("Authorization", getToken())
-                            .build();
+        client.addInterceptor(new Interceptor() {
+            @Override
+            public Response intercept(Interceptor.Chain chain) throws IOException {
+                Request original = chain.request();
+                Request request = original.newBuilder()
+                        .addHeader("Authorization", getToken())
+                        .build();
 
-                    return chain.proceed(request);
-                }
-            });
-        }
+                return chain.proceed(request);
+            }
+        });
     }
 
     private String getToken() {

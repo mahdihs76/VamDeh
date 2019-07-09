@@ -16,6 +16,7 @@ import ir.sharif.vamdeh.activity.base.BaseActivityJobSupport
 import ir.sharif.vamdeh.helper.*
 import ir.sharif.vamdeh.model.CertifiedPerson
 import ir.sharif.vamdeh.task.events.GetMyScoresEvent
+import ir.sharif.vamdeh.task.events.TrustRequestErrorEvent
 import ir.sharif.vamdeh.task.events.TrustRequestEvent
 import ir.sharif.vamdeh.task.jobs.TrustRequestJob
 import ir.sharif.vamdeh.view.adapter.CertifiedPersonAdapter
@@ -61,4 +62,7 @@ class CertifiedActivity : BaseActivityJobSupport() {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEvent(event: TrustRequestEvent) = toastSuccess(getString(R.string.trust_successful))
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onEvent(event: TrustRequestErrorEvent) = toastError(event.text)
 }

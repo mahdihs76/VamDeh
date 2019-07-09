@@ -1,9 +1,11 @@
 package ir.sharif.vamdeh.webservices;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Logger;
 
 import ir.sharif.vamdeh.webservices.base.WebserviceException;
 import ir.sharif.vamdeh.webservices.pref.WebservicePrefSetting;
@@ -77,7 +79,6 @@ public class WebserviceHelper {
         RegistrationProcess process = new RegistrationProcess(username, token, password);
         RegistrationResponse response = process.process();
         WebservicePrefSetting.getInstance(context).saveToken(response.getKey());
-        WebservicePrefSetting.getInstance(context).setRegister(true);
         return response;
     }
 
@@ -85,6 +86,7 @@ public class WebserviceHelper {
         LoginProcess process = new LoginProcess(phoneNumber, password);
         LoginResponse response = process.process();
         WebservicePrefSetting.getInstance(context).saveToken(response.getKey());
+        WebservicePrefSetting.getInstance(context).setRegister(true);
         return response;
     }
 
@@ -139,6 +141,7 @@ public class WebserviceHelper {
 
     public static CreateMyLoanResponse createMyLoan(int amount, int timeToReturnMoney, String status) throws IOException, WebserviceException {
         CreateMyLoanProcess process = new CreateMyLoanProcess(amount, timeToReturnMoney, status);
+        Log.e("TAG", "Token:::" + WebservicePrefSetting.getInstanceWithoutContext().getToken());
         return process.process();
     }
 

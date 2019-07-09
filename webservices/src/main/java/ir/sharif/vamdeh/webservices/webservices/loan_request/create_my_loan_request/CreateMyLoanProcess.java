@@ -9,8 +9,8 @@ import ir.sharif.vamdeh.webservices.base.WebserviceException;
 public class CreateMyLoanProcess extends BaseProcess {
     private CreateMyLoanRequest request;
 
-    public CreateMyLoanProcess(int amount, int timeToReturnMoney, String status) {
-        this.request = new CreateMyLoanRequest(amount, timeToReturnMoney, status);
+    public CreateMyLoanProcess(int amount, int timeToReturnMoney, String description) {
+        this.request = new CreateMyLoanRequest(amount, timeToReturnMoney, description);
     }
 
     @Override
