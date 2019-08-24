@@ -3,6 +3,8 @@
     package="ir.sharif.vamdeh">
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name="ir.sharif.MyApplication"
@@ -46,7 +48,7 @@
             android:name=".activity.before_main.RegisterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.operations.CertifiedActivity"
+            android:name=".activity.operations.TrustedPeopleActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.operations.TrustedActivity"

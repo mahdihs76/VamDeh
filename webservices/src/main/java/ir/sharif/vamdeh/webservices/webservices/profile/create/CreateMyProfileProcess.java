@@ -9,8 +9,8 @@ import ir.sharif.vamdeh.webservices.base.WebserviceException;
 public class CreateMyProfileProcess extends BaseProcess {
     CreateMyProfileRequest request;
 
-    public CreateMyProfileProcess(String userId, String mobilePhoneNo, String nationalID, String bankCardNo, String shebaNo) {
-        this.request = new CreateMyProfileRequest(userId, mobilePhoneNo, nationalID, bankCardNo, shebaNo);
+    public CreateMyProfileProcess(String fullName,String nationalID, String bankCardNo, String accountNo, String shebaNo) {
+        this.request = new CreateMyProfileRequest(fullName, nationalID, bankCardNo, accountNo, shebaNo);
     }
 
     @Override

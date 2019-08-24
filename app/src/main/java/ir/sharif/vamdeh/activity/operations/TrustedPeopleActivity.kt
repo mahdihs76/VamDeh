@@ -3,44 +3,47 @@ package ir.sharif.vamdeh.activity.operations
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import androidx.recyclerview.widget.GridLayoutManager
 import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.input.input
 import com.livinglifetechway.quickpermissions_kotlin.runWithPermissions
 import ir.sharif.vamdeh.R
-import ir.sharif.vamdeh.activity.base.BaseActivity
 import ir.sharif.vamdeh.activity.base.BaseActivityJobSupport
 import ir.sharif.vamdeh.helper.*
-import ir.sharif.vamdeh.model.CertifiedPerson
-import ir.sharif.vamdeh.task.events.GetMyScoresEvent
 import ir.sharif.vamdeh.task.events.TrustRequestErrorEvent
 import ir.sharif.vamdeh.task.events.TrustRequestEvent
+import ir.sharif.vamdeh.task.events.TrustedPeopleEvent
+import ir.sharif.vamdeh.task.jobs.GetTrustedListJob
 import ir.sharif.vamdeh.task.jobs.TrustRequestJob
-import ir.sharif.vamdeh.view.adapter.CertifiedPersonAdapter
+import ir.sharif.vamdeh.view.adapter.TrustedPeopleAdapter
+import ir.sharif.vamdeh.webservices.webservices.models.TrustedUser
 import kotlinx.android.synthetic.main.activity_certified.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
-import org.jetbrains.anko.longToast
-import org.jetbrains.anko.sdk27.coroutines.onClick
 
 const val PICK_CONTACT_CODE = 1000
 
-class CertifiedActivity : BaseActivityJobSupport() {
+class TrustedPeopleActivity : BaseActivityJobSupport() {
+
+    private lateinit var adapter: TrustedPeopleAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_certified)
 
         recyclerView.layoutManager = GridLayoutManager(this, 3)
-        recyclerView.adapter = CertifiedPersonAdapter(arrayOf(CertifiedPerson("مهدی حسن زاده", R.mipmap.me), CertifiedPerson("مهدی حسن زاده", R.mipmap.me), CertifiedPerson("مهدی حسن زاده", R.mipmap.me), CertifiedPerson("مهدی حسن زاده", R.mipmap.me), CertifiedPerson("مهدی حسن زاده", R.mipmap.me), CertifiedPerson("مهدی حسن زاده", R.mipmap.me), CertifiedPerson("مهدی حسن زاده", R.mipmap.me)))
+        adapter = TrustedPeopleAdapter(ArrayList())
+        recyclerView.adapter = adapter
 
         addPerson.setOnClickListener { openContacts(PICK_CONTACT_CODE) }
         backImageView.setOnClickListener { onBackPressed() }
+
+        getTrustedPeopleList()
+
     }
 
+    private fun getTrustedPeopleList() = scheduleJob(GetTrustedListJob.TAG)
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -61,7 +64,12 @@ class CertifiedActivity : BaseActivityJobSupport() {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onEvent(event: TrustRequestEvent) = toastSuccess(getString(R.string.trust_successful))
+    fun onEvent(event: TrustedPeopleEvent) = runOnUiThread { adapter.updateList(event.trustedPeople) }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onEvent(event: TrustRequestEvent) = toastSuccess(getString(R.string.trust_successful)).also {
+        gotoMainPage()
+    }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEvent(event: TrustRequestErrorEvent) = toastError(event.text)

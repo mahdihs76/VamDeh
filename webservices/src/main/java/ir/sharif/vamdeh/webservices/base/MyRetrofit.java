@@ -43,12 +43,15 @@ public class MyRetrofit {
     private WebserviceUrls getUrls() {
         Gson gson = new GsonBuilder()
                 .setLenient()
+                .serializeNulls()
                 .create();
 
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
         addLogginInterceptor(builder);
-        addAuthHeader(builder);
+        if (WebservicePrefSetting.getInstanceWithoutContext().getToken() != null) {
+            addAuthHeader(builder);
+        }
 
         OkHttpClient client = builder.build();
 

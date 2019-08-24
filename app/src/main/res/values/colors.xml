@@ -10,8 +10,8 @@
     <color name="paymentButtonSelectedBackground">#00f5ff</color>.
     <color name="paymentButtonSelectedTextColor">#134abe</color>
     <color name="addColor">#00ccff</color>
-    <color name="editTextBackgroundColor">#7f63c7fa</color>
-    <color name="editTextBorderColor">#8a9bed</color>
+    <color name="editTextBackgroundColor">#80285D5A</color>
+    <color name="editTextBorderColor">#38766C</color>
     <color name="white">#ffffff</color>
     <color name="progressColor">#E56126</color>
     <color name="rateColor">#965acaaf</color>
@@ -19,5 +19,8 @@
     <color name="strongGreen">#0c8c42</color>
     <color name="menuColor">#D5D5DE</color>
     <color name="gray">#6effffff</color>
+    <color name="add_bg">#5AC0AD</color>
+    <color name="header">#4D38766C</color>
+
 
 </resources>

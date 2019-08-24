@@ -1,7 +1,7 @@
 package ir.sharif.vamdeh.webservices.base;
 
 public class WebserviceAdresses {
-    public static final String BASE_URL = "https://biz-core.herokuapp.com/";
+    public static final String BASE_URL = "https://biz-core2.herokuapp.com/";
     public static final String VERIFICATION = "v1/verification_code/send_verification_token/";
     public static final String SEND_VERIFICATION_CODE = "v1/verification_code/verified_token/";
     public static final String GET_MY_SCORES = "v1/score/get_my_scores/";

@@ -41,3 +41,11 @@ fun getTrustRequestExtras(phone: String, trustValue: Int) = PersistableBundleCom
     putString(JobConstants.PHONE_NUMBER, phone)
     putInt(JobConstants.TRUST_VALUE, trustValue)
 }
+
+fun getCreateProfileExtras(fullName: String, nationalCode: String, accountNo: String, cardNo: String, shebaNo: String) = PersistableBundleCompat().apply {
+    putString(JobConstants.FULL_NAME, fullName)
+    putString(JobConstants.NATIONAL_CODE, nationalCode)
+    putString(JobConstants.ACCOUNT_NO, accountNo)
+    putString(JobConstants.CARD_NO, cardNo)
+    putString(JobConstants.SHEBA_NO, shebaNo)
+}

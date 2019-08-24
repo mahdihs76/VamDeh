@@ -46,4 +46,7 @@
     <string name="toman_format">%d تومان</string>
     <string name="create_loan_request_success">درخواست وام شما ثبت شد</string>
     <string name="trust_successful">درخواست اعتماد شما ثبت شد</string>
+    <string name="national_code">کد ملی</string>
+    <string name="card_no">شماره کارت</string>
+    <string name="sheba_no">شماره شبا</string>
 </resources>

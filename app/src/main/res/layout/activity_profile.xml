@@ -5,53 +5,86 @@
     android:layout_height="match_parent"
     android:background="@mipmap/background"
     tools:context=".activity.ProfileActivity">
-    
-    <TextView
-        android:id="@+id/header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="پروفایل"
-        android:textSize="24sp"
-        android:textColor="@color/white"
-        android:layout_marginTop="18dp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"/>
+
+    <RelativeLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:paddingBottom="12dp"
+        android:background="@color/header"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/actionBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:id="@+id/backImageView"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@mipmap/ic_back"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="پروفایل"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:layout_centerHorizontal="true"/>
+
+            <ImageView
+                android:id="@+id/menuImageView"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_menu"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
 
 
-    <ImageView
-        android:id="@+id/profileImageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@id/header"
-        android:layout_marginLeft="48dp"
-        android:contentDescription="profileImageView"
-        tools:ignore="HardcodedText" />
+        <ImageView
+            android:id="@+id/profileImageView"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/actionBarLayout"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="12dp"
+            android:contentDescription="profileImageView"
+            tools:ignore="HardcodedText" />
 
-    <ImageView
-        android:id="@+id/plusImageView"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_alignBottom="@id/profileImageView"
-        android:layout_alignEnd="@id/profileImageView"
-        android:layout_alignRight="@id/profileImageView"
-        android:layout_marginBottom="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
-        android:background="@drawable/add_background"
-        android:contentDescription="plusImageView"
-        android:src="@mipmap/ic_add"
-        tools:ignore="HardcodedText" />
-
+        <ImageView
+            android:id="@+id/plusImageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignBottom="@id/profileImageView"
+            android:layout_alignEnd="@id/profileImageView"
+            android:layout_alignRight="@id/profileImageView"
+            android:layout_marginBottom="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/add_background"
+            android:contentDescription="plusImageView"
+            android:src="@mipmap/ic_add"
+            tools:ignore="HardcodedText" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/nameHintTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@id/nameEditText"
-        android:layout_alignRight="@id/nameEditText"
-        android:layout_alignTop="@id/nameEditText"
+        android:layout_alignEnd="@id/fullName"
+        android:layout_alignRight="@id/fullName"
+        android:layout_alignTop="@id/fullName"
         android:layout_marginEnd="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginTop="-8dp"
@@ -61,13 +94,13 @@
         android:visibility="gone" />
 
     <EditText
-        android:id="@+id/nameEditText"
+        android:id="@+id/fullName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/profileImageView"
+        android:layout_below="@id/headerLayout"
         android:layout_marginLeft="48dp"
         android:layout_marginRight="48dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/edit_text_background"
         android:ellipsize="end"
         android:hint="@string/nameHint"
@@ -85,30 +118,31 @@
         android:id="@+id/phoneNumberHintTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@id/phoneNumberEditText"
-        android:layout_alignRight="@id/phoneNumberEditText"
-        android:layout_alignTop="@id/phoneNumberEditText"
+        android:layout_alignEnd="@id/nationalCode"
+        android:layout_alignRight="@id/nationalCode"
+        android:layout_alignTop="@id/nationalCode"
         android:layout_marginEnd="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginTop="-8dp"
-        android:text="@string/phoneNumberHint"
+        android:text="@string/national_code"
         android:textColor="@android:color/white"
         android:textSize="12sp"
         android:visibility="gone" />
 
     <EditText
-        android:id="@+id/phoneNumberEditText"
+        android:id="@+id/nationalCode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/nameEditText"
+        android:layout_below="@id/fullName"
         android:layout_marginLeft="48dp"
         android:layout_marginRight="48dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/edit_text_background"
-        android:ellipsize="end"
-        android:hint="@string/phoneNumberHint"
-        android:inputType="phone"
-        android:lines="1"
+        android:ellipsize="start"
+        android:hint="@string/national_code"
+        android:inputType="numberDecimal"
+        android:singleLine="true"
+        android:gravity="center_vertical|right"
         android:minHeight="48dp"
         android:paddingEnd="30dp"
         android:paddingLeft="20dp"
@@ -121,9 +155,9 @@
         android:id="@+id/creditNumberHintTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@id/creditNumberEditText"
-        android:layout_alignRight="@id/creditNumberEditText"
-        android:layout_alignTop="@id/creditNumberEditText"
+        android:layout_alignEnd="@id/accountNo"
+        android:layout_alignRight="@id/accountNo"
+        android:layout_alignTop="@id/accountNo"
         android:layout_marginEnd="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginTop="-8dp"
@@ -133,10 +167,10 @@
         android:visibility="gone" />
 
     <EditText
-        android:id="@+id/creditNumberEditText"
+        android:id="@+id/accountNo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/phoneNumberEditText"
+        android:layout_below="@id/nationalCode"
         android:layout_marginLeft="48dp"
         android:layout_marginRight="48dp"
         android:layout_marginTop="16dp"
@@ -158,28 +192,28 @@
         android:id="@+id/emailHintTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@id/emailEditText"
-        android:layout_alignRight="@id/emailEditText"
-        android:layout_alignTop="@id/emailEditText"
+        android:layout_alignEnd="@id/cardNo"
+        android:layout_alignRight="@id/cardNo"
+        android:layout_alignTop="@id/cardNo"
         android:layout_marginEnd="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginTop="-8dp"
-        android:text="@string/emailHint"
+        android:text="@string/card_no"
         android:textColor="@android:color/white"
         android:textSize="12sp"
         android:visibility="gone" />
 
     <EditText
-        android:id="@+id/emailEditText"
+        android:id="@+id/cardNo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/creditNumberEditText"
+        android:layout_below="@id/accountNo"
         android:layout_marginLeft="48dp"
         android:layout_marginRight="48dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/edit_text_background"
         android:ellipsize="end"
-        android:hint="@string/emailHint"
+        android:hint="@string/card_no"
         android:inputType="textEmailAddress"
         android:lines="1"
         android:minHeight="48dp"
@@ -194,32 +228,32 @@
         android:id="@+id/addressHintTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@id/addressEditText"
-        android:layout_alignRight="@id/addressEditText"
-        android:layout_alignTop="@id/addressEditText"
+        android:layout_alignEnd="@id/shebaNo"
+        android:layout_alignRight="@id/shebaNo"
+        android:layout_alignTop="@id/shebaNo"
         android:layout_marginEnd="25dp"
         android:layout_marginRight="25dp"
         android:layout_marginTop="-8dp"
-        android:text="@string/addressHint"
+        android:text="@string/sheba_no"
         android:textColor="@android:color/white"
         android:textSize="12sp"
         android:visibility="gone" />
 
     <EditText
-        android:id="@+id/addressEditText"
+        android:id="@+id/shebaNo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/emailEditText"
+        android:layout_below="@id/cardNo"
         android:layout_marginLeft="48dp"
         android:layout_marginRight="48dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/edit_text_background"
         android:ellipsize="end"
         android:gravity="top"
-        android:hint="@string/addressHint"
+        android:hint="@string/sheba_no"
         android:inputType="textPostalAddress|textMultiLine"
-        android:lines="4"
-        android:minHeight="100dp"
+        android:lines="1"
+        android:minHeight="48dp"
         android:paddingEnd="30dp"
         android:paddingLeft="20dp"
         android:paddingRight="30dp"
@@ -228,30 +262,30 @@
         android:textColor="@android:color/white"
         android:textColorHint="@color/white" />
 
-    <Button
-        android:id="@+id/profileSubmitButton"
-        android:layout_width="120dp"
-        android:layout_height="48dp"
-        android:layout_alignEnd="@id/addressEditText"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@id/addressEditText"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/profile_submit_background"
-        android:text="@string/submit"
-        android:textColor="@android:color/white"
-        android:textSize="22sp" />
+        android:gravity="center"
+        android:layout_below="@id/shebaNo">
 
-    <Button
-        android:id="@+id/profileCancelButton"
-        android:layout_width="120dp"
-        android:layout_height="48dp"
-        android:layout_alignLeft="@id/addressEditText"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@id/addressEditText"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/profile_cancel_background"
-        android:text="@string/cancel"
-        android:textColor="@android:color/white"
-        android:textSize="22sp" />
+        <ir.sharif.vamdeh.view.button.UnoButton
+            android:id="@+id/profileCancelButton"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="12dp"
+            android:text="@string/cancel" />
+
+        <ir.sharif.vamdeh.view.button.UnoSumbitButton
+            android:id="@+id/profileSubmitButton"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="12dp"
+            android:text="@string/submit" />
+
+
+    </LinearLayout>
+
+
 
 </RelativeLayout>

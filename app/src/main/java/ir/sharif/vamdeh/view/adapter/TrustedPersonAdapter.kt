@@ -4,9 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import ir.sharif.vamdeh.R
-import ir.sharif.vamdeh.model.CertifiedPerson
 import ir.sharif.vamdeh.model.TrustedPerson
-import ir.sharif.vamdeh.view.viewholder.CertifiedPersonVH
 import ir.sharif.vamdeh.view.viewholder.TrustedPersonVH
 
 /**

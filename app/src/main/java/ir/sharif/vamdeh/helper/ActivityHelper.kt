@@ -7,9 +7,6 @@ import ir.sharif.vamdeh.activity.before_main.LoginActivity
 import ir.sharif.vamdeh.activity.before_main.PhoneActivity
 import ir.sharif.vamdeh.activity.before_main.RegisterActivity
 import ir.sharif.vamdeh.activity.operations.*
-import org.jetbrains.anko.clearTop
-import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.singleTop
 import org.jetbrains.anko.startActivity
 
 /**
@@ -28,7 +25,7 @@ fun Activity.gotoLending() = startActivity<LendingActivity>()
 fun Activity.gotoLoanRequest() = startActivity<LoanRequestActivity>()
 fun Activity.gotoRegister() = startActivity<RegisterActivity>().apply { finish() }
 fun Activity.gotoPhonePage() = startActivity<PhoneActivity>().apply { finish() }
-fun Activity.gotoCertifiedPage() = startActivity<CertifiedActivity>()
+fun Activity.gotoCertifiedPage() = startActivity<TrustedPeopleActivity>()
 fun Activity.gotoTrustedPage() = startActivity<TrustedActivity>()
 
 

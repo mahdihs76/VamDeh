@@ -106,10 +106,8 @@ public class WebserviceHelper {
         return process.process();
     }
 
-    public static CreateMyProfileResponse createMyProfile(Context context, String userId, String mobilePhoneNo, String nationalID, String bankCardNo, String shebaNo) throws IOException, WebserviceException {
-        WebservicePrefSetting.getInstance(context).isRegister();
-
-        CreateMyProfileProcess process = new CreateMyProfileProcess(userId, mobilePhoneNo, nationalID, bankCardNo, shebaNo);
+    public static CreateMyProfileResponse createMyProfile(String fullName, String nationalCode, String bankCardNo, String bankAccountNo, String shebaNo) throws IOException, WebserviceException {
+        CreateMyProfileProcess process = new CreateMyProfileProcess(fullName, nationalCode, bankCardNo, bankAccountNo, shebaNo);
         return process.process();
     }
 

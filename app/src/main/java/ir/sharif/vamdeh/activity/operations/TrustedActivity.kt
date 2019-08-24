@@ -18,6 +18,6 @@ class TrustedActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = TrustedPersonAdapter(arrayOf(TrustedPerson("مهدی حسن زاده", "09150773830", "97/08/09")))
 
-        backImageView.onClick { onBackPressed() }
+        backImageView.setOnClickListener { onBackPressed() }
     }
 }
