@@ -13,7 +13,7 @@ class LoansActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_loans)
-        backImageView.onClick { onBackPressed() }
+        backImageView.setOnClickListener { onBackPressed() }
     }
 
 }

@@ -44,7 +44,7 @@ class TrustierPeopleActivity : BaseActivity() {
             runWithPermissions(Manifest.permission.READ_CONTACTS) {
                 val contact = fetchContact(data)
                 val service = MyRetrofit.getInstance().webserviceUrls
-                CoroutineScope(Dispatchers.IO).launch {
+                CoroutineScope(Dispatchers.Main).launch {
                     try {
                         service.createTrustRequest(contact.phone)
                         updateTrustierPeopleList()
