@@ -5,7 +5,6 @@ import android.util.Log;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.logging.Logger;
 
 import ir.sharif.vamdeh.webservices.base.WebserviceException;
 import ir.sharif.vamdeh.webservices.pref.WebservicePrefSetting;
@@ -39,8 +38,6 @@ import ir.sharif.vamdeh.webservices.webservices.rest_auth.send_verification_code
 import ir.sharif.vamdeh.webservices.webservices.rest_auth.send_verification_code.SendVerificationCodeResponse;
 import ir.sharif.vamdeh.webservices.webservices.rest_auth.verification.VerificationProcess;
 import ir.sharif.vamdeh.webservices.webservices.rest_auth.verification.VerificationResponse;
-import ir.sharif.vamdeh.webservices.webservices.trust_relation.create_trust.CreateTrustProcess;
-import ir.sharif.vamdeh.webservices.webservices.trust_relation.create_trust.CreateTrustResponse;
 import ir.sharif.vamdeh.webservices.webservices.trust_relation.create_trust_request_as_trustier.CreateTrustRequestAsTrustierProcess;
 import ir.sharif.vamdeh.webservices.webservices.trust_relation.create_trust_request_as_trustier.CreateTrustRequestAsTrustierResponse;
 import ir.sharif.vamdeh.webservices.webservices.trust_relation.evaluate_trust_relation.EvaluateTrustRelationProcess;
@@ -95,6 +92,12 @@ public class WebserviceHelper {
         return process.process();
     }
 
+//    public static List<GetTrustierPeopleListResponse> getTrustierPeopleList() throws IOException, WebserviceException {
+//        GetTrustierPeopleListProcess process = new GetTrustierPeopleListProcess();
+//        return process.process();
+//    }
+
+
     public static CreateTrustRequestAsTrustierResponse createTrustRequestAsTrustier(String phoneNumber, int trustValue) throws IOException, WebserviceException {
         CreateTrustRequestAsTrustierProcess process = new CreateTrustRequestAsTrustierProcess(phoneNumber, trustValue);
         return process.process();
@@ -111,12 +114,10 @@ public class WebserviceHelper {
         return process.process();
     }
 
-    public static CreateTrustResponse createTrust(Context context, int trustier) throws IOException, WebserviceException {
-        WebservicePrefSetting.getInstance(context).isRegister();
-
-        CreateTrustProcess process = new CreateTrustProcess(trustier);
-        return process.process();
-    }
+//    public static CreateTrustResponse createTrustRequestAsTrusted(String phoneNumber) throws IOException, WebserviceException {
+//        CreateTrustRequestAsTrustedProcess process = new CreateTrustRequestAsTrustedProcess(phoneNumber);
+//        return process.process();
+//    }
 
     public static GetTrustRequestsAsAcceptorResponse[] getTrustRequestsAsAcceptor(Context context) throws IOException, WebserviceException {
         WebservicePrefSetting.getInstance(context).isRegister();
@@ -168,8 +169,7 @@ public class WebserviceHelper {
         return process.process();
     }
 
-    public static GetMyProfileUserResponse getMyProfileUser(Context context) throws IOException, WebserviceException {
-        WebservicePrefSetting.getInstance(context).isRegister();
+    public static GetMyProfileUserResponse getMyProfileUser() throws IOException, WebserviceException {
         GetMyProfileUserProcess process = new GetMyProfileUserProcess();
         return process.process();
     }
@@ -198,9 +198,8 @@ public class WebserviceHelper {
         return process.process();
     }
 
-    public static UpdateMyTrustRelationValueResponse updateMyTrustRelationValueProcess(Context context, int id, int activeTrustValue) throws IOException, WebserviceException {
-        WebservicePrefSetting.getInstance(context).isRegister();
-        UpdateMyTrustRelationValueProcess process = new UpdateMyTrustRelationValueProcess(id, activeTrustValue);
+    public static UpdateMyTrustRelationValueResponse updateMyTrustRelationValue(String phoneNumber, int activeTrustValue) throws IOException, WebserviceException {
+        UpdateMyTrustRelationValueProcess process = new UpdateMyTrustRelationValueProcess(phoneNumber, activeTrustValue);
         return process.process();
     }
 

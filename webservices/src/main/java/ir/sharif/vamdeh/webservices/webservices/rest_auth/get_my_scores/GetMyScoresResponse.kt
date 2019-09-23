@@ -6,5 +6,5 @@ import ir.sharif.vamdeh.webservices.base.BaseResponse
 
 class GetMyScoresResponse(@field:SerializedName("id") val id: Int,
                           @field:SerializedName("value") val value: Int,
-                          @field:SerializedName("user") val user: Int,
+                          @field:SerializedName("profile") val user: Int,
                           @field:SerializedName("s_type") val sType: Int) : BaseResponse()

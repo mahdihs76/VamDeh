@@ -11,6 +11,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
+        multiDexEnabled true
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -21,6 +22,14 @@ android {
         }
     }
     sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 repositories {
@@ -31,29 +40,33 @@ dependencies {
     api project(':webservices')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0-beta01'
+    implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
     implementation 'com.github.szugyi:Android-CircleMenu:2.0.0'
     implementation "org.jetbrains.anko:anko:$anko_version"
-    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
     implementation 'com.github.florent37:android-slidr:1.0.3'
     implementation 'me.tankery.lib:circularSeekBar:1.1.7'
     implementation('com.github.bumptech.glide:glide:4.0.0') {
         exclude group: "com.android.support"
     }
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     implementation 'com.rengwuxian.materialedittext:library:2.1.4'
     implementation 'com.akexorcist:RoundCornerProgressBar:2.0.3'
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation 'com.evernote:android-job:1.2.6'
-    implementation "com.afollestad.material-dialogs:core:2.0.0-alpha05"
-    implementation "com.afollestad.material-dialogs:input:2.0.0-alpha05"
+    implementation "com.afollestad.material-dialogs:core:3.1.1"
+    implementation "com.afollestad.material-dialogs:input:3.1.1"
     implementation 'com.github.quickpermissions:quickpermissions-kotlin:0.4.0'
     implementation 'com.ramotion.circlemenu:circle-menu:0.3.2'
     implementation 'com.github.ybq:Android-SpinKit:1.2.0'
     implementation 'com.irozon.sneaker:sneaker:2.0.0'
     implementation 'com.wrapp.floatlabelededittext:library:0.0.6'
+    implementation 'com.google.firebase:firebase-analytics:17.2.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.1'
+
     testImplementation 'junit:junit:4.12'
 }
 kotlin {

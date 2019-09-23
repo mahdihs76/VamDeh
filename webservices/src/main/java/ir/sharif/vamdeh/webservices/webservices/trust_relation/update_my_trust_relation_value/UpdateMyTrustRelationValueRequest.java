@@ -6,13 +6,13 @@ import ir.sharif.vamdeh.webservices.base.BaseRequest;
 
 public class UpdateMyTrustRelationValueRequest extends BaseRequest {
 
-    @SerializedName("id")
-    private int id;
+    @SerializedName("trusted_mobile_number")
+    private String phoneNumber;
     @SerializedName("active_trust_value")
     private int activeTrustValue;
 
-    public UpdateMyTrustRelationValueRequest(int id, int activeTrustValue) {
-        this.id = id;
+    public UpdateMyTrustRelationValueRequest(String phoneNumber, int activeTrustValue) {
+        this.phoneNumber = phoneNumber;
         this.activeTrustValue = activeTrustValue;
     }
 }

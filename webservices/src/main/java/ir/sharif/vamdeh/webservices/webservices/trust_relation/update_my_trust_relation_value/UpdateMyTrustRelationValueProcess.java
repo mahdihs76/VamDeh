@@ -9,8 +9,8 @@ import ir.sharif.vamdeh.webservices.base.WebserviceException;
 public class UpdateMyTrustRelationValueProcess extends BaseProcess {
     private UpdateMyTrustRelationValueRequest request;
 
-    public UpdateMyTrustRelationValueProcess(int id, int activeTrustValue) {
-        this.request = new UpdateMyTrustRelationValueRequest(id, activeTrustValue);
+    public UpdateMyTrustRelationValueProcess(String phoneNumber, int activeTrustValue) {
+        this.request = new UpdateMyTrustRelationValueRequest(phoneNumber, activeTrustValue);
     }
 
     @Override

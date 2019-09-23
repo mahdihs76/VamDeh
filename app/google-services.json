@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "421126486449",
+    "firebase_url": "https://vamdeh.firebaseio.com",
+    "project_id": "vamdeh",
+    "storage_bucket": "vamdeh.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:421126486449:android:72a8006bcfe689b8",
+        "android_client_info": {
+          "package_name": "ir.sharif.vamdeh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "421126486449-3gvdfgg87m33uvkhj9udkd5v6oj9o39j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBp-ZHoF0QxN8J4XipLeZX8DFSqRHhX_ic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "421126486449-3gvdfgg87m33uvkhj9udkd5v6oj9o39j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

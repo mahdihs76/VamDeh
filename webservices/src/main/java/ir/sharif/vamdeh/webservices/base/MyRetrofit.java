@@ -49,7 +49,7 @@ public class MyRetrofit {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
         addLogginInterceptor(builder);
-        if (WebservicePrefSetting.getInstanceWithoutContext().getToken() != null) {
+        if (!WebservicePrefSetting.getInstanceWithoutContext().getToken().isEmpty()) {
             addAuthHeader(builder);
         }
 

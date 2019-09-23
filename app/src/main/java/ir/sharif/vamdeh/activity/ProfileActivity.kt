@@ -20,9 +20,12 @@ import ir.sharif.vamdeh.task.events.GetMyScoresEvent
 import ir.sharif.vamdeh.task.jobs.CreateProfileErrorEvent
 import ir.sharif.vamdeh.task.jobs.CreateProfileEvent
 import ir.sharif.vamdeh.task.jobs.CreateProfileJob
+import ir.sharif.vamdeh.webservices.WebserviceHelper
 import kotlinx.android.synthetic.main.activity_profile.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
+import java.lang.Exception
+import kotlin.concurrent.thread
 
 
 class ProfileActivity : BaseActivityJobSupport() {
@@ -41,6 +44,19 @@ class ProfileActivity : BaseActivityJobSupport() {
                     shebaNo.text.toString()
             ))
         }
+//        thread(true){
+//            try{
+//                val result = WebserviceHelper.getMyProfileUser()
+//                runOnUiThread {
+//                    fullName.setText(result?.nickName)
+//                    nationalCode.setText(result?.nationalId)
+//                    accountNo.setText(result?.accountNo)
+//                    cardNo.setText(result?.cardNo)
+//                    shebaNo.setText(result?.shebaNo)
+//                }
+//            }catch (e: Exception){
+//                runOnUiThread { toastError(e.message.toString()) }
+//            }
     }
 
     private fun initializeViews() {

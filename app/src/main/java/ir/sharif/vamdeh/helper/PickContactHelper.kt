@@ -2,8 +2,13 @@ package ir.sharif.vamdeh.helper
 
 import android.content.Intent
 import android.content.Context
+import android.net.Uri
 import android.provider.ContactsContract
 import ir.sharif.vamdeh.model.PhoneContact
+import android.system.Os.close
+import android.net.Uri.withAppendedPath
+
+
 
 
 fun Context.fetchContact(data: Intent): PhoneContact {
@@ -28,4 +33,23 @@ fun Context.fetchContact(data: Intent): PhoneContact {
         cursor.close()
     }
     return PhoneContact(id, name, phoneNumber)
+}
+
+fun Context.getContactName(phoneNumber: String): String {
+
+    val uri = withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode(phoneNumber))
+
+    val projection = arrayOf(ContactsContract.PhoneLookup.DISPLAY_NAME)
+
+    var contactName = ""
+    val cursor = contentResolver.query(uri, projection, null, null, null)
+
+    if (cursor != null) {
+        if (cursor.moveToFirst()) {
+            contactName = cursor.getString(0)
+        }
+        cursor.close()
+    }
+
+    return contactName
 }

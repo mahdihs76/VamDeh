@@ -1,6 +1,7 @@
 package ir.sharif
 
 import android.app.Application
+import androidx.multidex.MultiDexApplication
 import com.evernote.android.job.JobManager
 import ir.sharif.vamdeh.ApplicationContext
 import ir.sharif.vamdeh.task.MyJobCreator
@@ -10,7 +11,7 @@ import ir.sharif.vamdeh.webservices.pref.WebservicePrefSetting
  *
  * Created by mahdihs76 on 9/11/18.
  */
-class MyApplication : Application() {
+class MyApplication : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()

@@ -16,7 +16,7 @@ class LendingActivity : BaseActivity(), CircularSeekBar.OnCircularSeekBarChangeL
         setContentView(R.layout.activity_lending)
 
         seekBar.setOnSeekBarChangeListener(this)
-        backImageView.onClick { onBackPressed() }
+        backImageView.setOnClickListener { onBackPressed() }
     }
 
     override fun onProgressChanged(circularSeekBar: CircularSeekBar?, progress: Float, fromUser: Boolean) {

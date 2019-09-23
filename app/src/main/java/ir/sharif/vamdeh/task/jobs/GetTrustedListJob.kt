@@ -1,13 +1,7 @@
 package ir.sharif.vamdeh.task.jobs
 
 import com.evernote.android.job.Job
-import ir.sharif.vamdeh.ApplicationContext
-import ir.sharif.vamdeh.cache.CacheConstants
-import ir.sharif.vamdeh.cache.defaultCache
-import ir.sharif.vamdeh.cache.get
-import ir.sharif.vamdeh.task.JobConstants
 import ir.sharif.vamdeh.task.events.*
-import ir.sharif.vamdeh.utils.normalizePhone
 import ir.sharif.vamdeh.webservices.WebserviceHelper
 import ir.sharif.vamdeh.webservices.base.WebserviceException
 import org.greenrobot.eventbus.EventBus
@@ -22,7 +16,7 @@ class GetTrustedListJob : Job() {
     override fun onRunJob(params: Params): Result {
         return try {
             val list = WebserviceHelper.getMyTrustedPeopleList()
-            EventBus.getDefault().post(TrustedPeopleEvent(list.map { people -> people.trustedUser }))
+            EventBus.getDefault().post(TrustedPeopleEvent(list.map { people -> people.user }))
             Result.SUCCESS
         } catch (e: WebserviceException) {
             EventBus.getDefault().post(TrustRequestErrorEvent(e.message + ""))

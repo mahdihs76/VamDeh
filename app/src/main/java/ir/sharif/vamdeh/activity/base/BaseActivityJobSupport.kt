@@ -9,7 +9,7 @@ open class BaseActivityJobSupport : BaseActivity() {
 
     override fun onStart() {
         super.onStart()
-        EventBus.getDefault().register(this);
+        EventBus.getDefault().register(this)
     }
 
     public override fun onStop() {

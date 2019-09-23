@@ -10,7 +10,7 @@ public class CreateMyProfileResponse extends BaseResponse {
   @SerializedName("national_id")  private String nationalID;
   @SerializedName("bank_card_number")  private String bankCardNumber;
   @SerializedName("sheba_number")  private String shebaNumber;
-  @SerializedName("user")  private int user;
+  @SerializedName("profile")  private int user;
 
     public CreateMyProfileResponse(String id, String mobilePhoneNumbe, String nationalID, String bankCardNumber, String shebaNumber, int user) {
         this.id = id;

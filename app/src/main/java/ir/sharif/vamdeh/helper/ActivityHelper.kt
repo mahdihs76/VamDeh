@@ -26,6 +26,6 @@ fun Activity.gotoLoanRequest() = startActivity<LoanRequestActivity>()
 fun Activity.gotoRegister() = startActivity<RegisterActivity>().apply { finish() }
 fun Activity.gotoPhonePage() = startActivity<PhoneActivity>().apply { finish() }
 fun Activity.gotoCertifiedPage() = startActivity<TrustedPeopleActivity>()
-fun Activity.gotoTrustedPage() = startActivity<TrustedActivity>()
+fun Activity.gotoTrustedPage() = startActivity<TrustierPeopleActivity>()
 
 
