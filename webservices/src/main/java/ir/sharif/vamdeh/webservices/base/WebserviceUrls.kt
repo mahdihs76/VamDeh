@@ -39,6 +39,7 @@ import ir.sharif.vamdeh.webservices.webservices.trust_relation.get_trust_request
 import ir.sharif.vamdeh.webservices.webservices.trust_relation.update_my_trust_relation_value.UpdateMyTrustRelationValueRequest
 import ir.sharif.vamdeh.webservices.webservices.trust_relation.update_my_trust_relation_value.UpdateMyTrustRelationValueResponse
 import ir.sharif.vamdeh.webservices.webservices.user.get_my_user_info.GetMyUserInfoResponse
+import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -101,6 +102,16 @@ interface WebserviceUrls {
     @FormUrlEncoded
     @POST(WebserviceAdresses.CREATE_TRUST_REQUEST)
     suspend fun createTrustRequest(@Field("trustier_mobile_number") phoneNumber: String): Response<CreateTrustResponse>
+
+    @FormUrlEncoded
+    @POST("v1/profile/create_fcm_device/")
+    suspend fun createFCMDevice(
+            @Field("registration_id") registrationId: String,
+            @Field("type") type: String,
+            @Field("name") name: String? = null,
+            @Field("device_id") deviceId: String? = null
+    ): Response<ResponseBody>
+
 
     @POST(WebserviceAdresses.EVALUATE_TRUST_REQUEST)
     fun evaluateTrustRelation(@Body request: EvaluateTrustRelationRequest): Call<EvaluateTrustRelationResponse>

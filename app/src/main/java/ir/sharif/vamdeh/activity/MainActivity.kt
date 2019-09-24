@@ -1,29 +1,19 @@
 package ir.sharif.vamdeh.activity
 
 import android.os.Bundle
-import android.util.Log
 import com.ramotion.circlemenu.CircleMenuView
 import ir.sharif.vamdeh.R
 import ir.sharif.vamdeh.activity.base.BaseActivityJobSupport
-import ir.sharif.vamdeh.cache.CacheConstants
-import ir.sharif.vamdeh.cache.defaultCache
-import ir.sharif.vamdeh.cache.set
-import ir.sharif.vamdeh.helper.gotoPhonePage
+import ir.sharif.vamdeh.enum.getMenuItem
 import ir.sharif.vamdeh.helper.gotoProfile
 import ir.sharif.vamdeh.helper.scheduleJob
-import ir.sharif.vamdeh.helper.toastLoginFailed
 import ir.sharif.vamdeh.model.RateModel
 import ir.sharif.vamdeh.task.events.GetMyScoresEvent
-import ir.sharif.vamdeh.task.events.LoginEvent
 import ir.sharif.vamdeh.task.jobs.GetMyScoresJob
-import ir.sharif.vamdeh.task.jobs.LoginJob
-import ir.sharif.vamdeh.webservices.pref.WebservicePrefSetting
+import ir.sharif.vamdeh.utils.action
 import kotlinx.android.synthetic.main.activity_main.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
-import org.jetbrains.anko.sdk27.coroutines.onClick
-import ir.sharif.vamdeh.enum.getMenuItem
-import ir.sharif.vamdeh.utils.action
 
 
 class MainActivity : BaseActivityJobSupport() {
