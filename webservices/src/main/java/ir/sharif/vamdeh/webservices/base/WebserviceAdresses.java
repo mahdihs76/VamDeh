@@ -14,6 +14,7 @@ public class WebserviceAdresses {
     public static final String GET_TRUST_REQUESTS_AS_ACCEPTOR = "v1/trust_relation/get_trust_requests_as_acceptor/";
     public static final String EVALUATE_TRUST_REQUEST = "v1/trust_relation/evaluate_trust_request/";
     public static final String CREATE_MY_LOAN_REQUEST = "v1/loan_request/create_my_loan_request/";
+    public static final String CREATE_DIRECT_REQUEST = "/v1/direct_loan/create_direct_loan/";
     public static final String DELETE_MY_LOAN_REQUEST = "v1/loan_request/delete_my_loan_request/";
     public static final String ACCEPT_LOAN_REQUEST = "v1/loan_relation/accept_loan_request/";
     public static final String GET_MY_REPAYMENTS = "v1/repayment/get_my_repayments/";

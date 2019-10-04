@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="@string/loanRequest"
+                android:text="@string/directLoan"
                 android:textColor="@color/white"
                 android:textSize="22sp"
                 android:layout_centerHorizontal="true"/>
@@ -170,15 +170,16 @@
 
 
         <EditText
-            android:id="@+id/descriptionEditText"
+            android:id="@+id/phoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/monthlyPaymentAmountLayout"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
             android:layout_marginTop="32dp"
-            android:hint="@string/paymentDescription"
-            android:inputType="textMultiLine"
+            android:hint="@string/phone_number"
+            android:gravity="right"
+            android:inputType="phone"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:theme="@style/Theme.App.Base" />
@@ -188,9 +189,21 @@
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginTop="12dp"
-            android:layout_below="@id/descriptionEditText"
+            android:layout_below="@id/phoneNumber"
             android:layout_centerHorizontal="true"
             android:text="@string/loanRequest" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/spinKit"
+            style="@style/SpinKitView.CubeGrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_below="@id/phoneNumber"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible"
+            app:SpinKit_Color="@color/gray" />
 
     </RelativeLayout>
 </ScrollView>

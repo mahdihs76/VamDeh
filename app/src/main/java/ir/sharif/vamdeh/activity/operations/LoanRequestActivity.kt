@@ -4,24 +4,21 @@ package ir.sharif.vamdeh.activity.operations
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
+import android.view.View
 import android.widget.Button
 import ir.sharif.vamdeh.R
+import ir.sharif.vamdeh.activity.base.BaseActivity
 import ir.sharif.vamdeh.activity.base.BaseActivityJobSupport
-import ir.sharif.vamdeh.helper.getMyLoanExtras
-import ir.sharif.vamdeh.helper.gotoMainPage
-import ir.sharif.vamdeh.helper.scheduleJob
-import ir.sharif.vamdeh.helper.toastSuccess
-import ir.sharif.vamdeh.task.events.CreateMyLoanEvent
-import ir.sharif.vamdeh.task.jobs.CreateMyLoanJob
-import ir.sharif.vamdeh.utils.string
+import ir.sharif.vamdeh.helper.*
 import kotlinx.android.synthetic.main.activity_loan_request.*
 import kotlinx.android.synthetic.main.amount_slider_layout.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import me.tankery.lib.circularseekbar.CircularSeekBar
-import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
 import org.jetbrains.anko.textColor
 
-class LoanRequestActivity : BaseActivityJobSupport(), CircularSeekBar.OnCircularSeekBarChangeListener {
+class LoanRequestActivity : BaseActivity(), CircularSeekBar.OnCircularSeekBarChangeListener {
 
     private lateinit var buttons: Array<Button>
 
@@ -33,9 +30,20 @@ class LoanRequestActivity : BaseActivityJobSupport(), CircularSeekBar.OnCircular
         backImageView.setOnClickListener { onBackPressed() }
 
         requestLoanButton.setOnClickListener {
-            createMyLoan(amountTextView.text.toString().toInt(),
-                    getTimeToReturnMoney(),
-                    descriptionEditText.text.toString())
+            CoroutineScope(Dispatchers.Main).launch {
+                spinKit.visibility = View.VISIBLE
+                requestLoanButton.visibility = View.INVISIBLE
+                callWebservice {
+                    getServices().createDirectLoan(phoneNumber.text.toString(),
+                            amountTextView.text.toString().toInt(),
+                            getTimeToReturnMoney(), "empty")
+                }?.run {
+                    spinKit.visibility = View.INVISIBLE
+                    requestLoanButton.visibility = View.VISIBLE
+                    toastSuccess("وام مستقیم شما با موفقیت ثبت شد")
+                    Handler().postDelayed(::onBackPressed, 1000)
+                }
+            }
         }
     }
 
@@ -50,15 +58,6 @@ class LoanRequestActivity : BaseActivityJobSupport(), CircularSeekBar.OnCircular
     override fun onStartTrackingTouch(seekBar: CircularSeekBar?) {}
 
     override fun onStopTrackingTouch(seekBar: CircularSeekBar?) {}
-
-
-    private fun createMyLoan(amount: Int, timeToReturnMoney: Int, status: String) =
-            scheduleJob(CreateMyLoanJob.TAG, getMyLoanExtras(amount, timeToReturnMoney, status))
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onEvent(event: CreateMyLoanEvent) = toastSuccess(getString(R.string.create_loan_request_success)).also {
-        Handler().postDelayed({ gotoMainPage() }, 2000)
-    }
 
     private fun initUi() {
         buttons = arrayOf(oneMonth, threeMonth, sixMonth, twelveMonth)

@@ -88,7 +88,7 @@ interface WebserviceUrls {
     fun sendVerificationCode(@Body request: SendVerificationCodeRequest): Call<SendVerificationCodeResponse>
 
     @POST(WebserviceAdresses.CREATE_TRUST_REQUEST_AS_TRUSTIER)
-     fun createTrustRequestAsTrustier(@Body request: CreateTrustRequestAsTrustierRequest): Call<CreateTrustRequestAsTrustierResponse>
+    fun createTrustRequestAsTrustier(@Body request: CreateTrustRequestAsTrustierRequest): Call<CreateTrustRequestAsTrustierResponse>
 
     @POST(WebserviceAdresses.REGISTRATION)
     fun register(@Body request: RegistrationRequest): Call<RegistrationResponse>
@@ -116,8 +116,13 @@ interface WebserviceUrls {
     @POST(WebserviceAdresses.EVALUATE_TRUST_REQUEST)
     fun evaluateTrustRelation(@Body request: EvaluateTrustRelationRequest): Call<EvaluateTrustRelationResponse>
 
-    @POST(WebserviceAdresses.CREATE_MY_LOAN_REQUEST)
-    fun createMyLoan(@Body request: CreateMyLoanRequest): Call<CreateMyLoanResponse>
+    @FormUrlEncoded
+    @POST(WebserviceAdresses.CREATE_DIRECT_REQUEST)
+    suspend fun createDirectLoan(
+            @Field("receiver_mobile_number") phone: String,
+            @Field("amount") amount: Int,
+            @Field("time_to_return_money") timeToReturnMoney: Int,
+            @Field("description") description: String): Response<CreateMyLoanResponse>
 
     @POST(WebserviceAdresses.ACCEPT_LOAN_REQUEST)
     fun acceptLoan(@Body request: AcceptLoanRequest): Call<AcceptLoanResponse>

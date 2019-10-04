@@ -1,11 +1,8 @@
 package ir.sharif.vamdeh.helper
 
-import android.app.Activity
 import android.content.Context
-import android.view.ViewGroup
-import com.irozon.sneaker.Sneaker
-import ir.sharif.vamdeh.R
-import ir.sharif.vamdeh.utils.getAppTypeface
+import android.widget.Toast
+import es.dmoral.toasty.Toasty
 import org.jetbrains.anko.longToast
 
 /**
@@ -16,14 +13,8 @@ fun Context.toastInvalidPhone() = longToast("InvalidPhoneNumber")
 fun Context.toastInvalidPassword() = longToast("InvalidPassword")
 fun Context.toastLoginFailed()= longToast("LoginFailed")
 
-fun Activity.toastError(text:String) = Sneaker.with(this)
-        .setTitle(getString(R.string.error))
-        .setHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
-        .setMessage(text)
-        .setTypeface(getAppTypeface()).sneakWarning()
+fun Context.toastError(text:String) = Toasty.error(this, text, Toast.LENGTH_SHORT, true).show()
 
-fun Activity.toastSuccess(text:String) = Sneaker.with(this)
-        .setTitle(getString(R.string.successful))
-        .setHeight(ViewGroup.LayoutParams.WRAP_CONTENT)
-        .setMessage(text)
-        .setTypeface(getAppTypeface()).sneakSuccess()
+fun Context.toastWarning(text:String) = Toasty.warning(this, text, Toast.LENGTH_SHORT, true).show()
+
+fun Context.toastSuccess(text:String) = Toasty.success(this, text, Toast.LENGTH_SHORT, true).show()

@@ -10,7 +10,6 @@ import ir.sharif.vamdeh.webservices.base.WebserviceException;
 import ir.sharif.vamdeh.webservices.pref.WebservicePrefSetting;
 import ir.sharif.vamdeh.webservices.webservices.loan_request.accept_loan_request.AcceptLoanProcess;
 import ir.sharif.vamdeh.webservices.webservices.loan_request.accept_loan_request.AcceptLoanResponse;
-import ir.sharif.vamdeh.webservices.webservices.loan_request.create_my_loan_request.CreateMyLoanProcess;
 import ir.sharif.vamdeh.webservices.webservices.loan_request.create_my_loan_request.CreateMyLoanResponse;
 import ir.sharif.vamdeh.webservices.webservices.loan_request.delete_my_loan_request.DeleteMyLoanProcess;
 import ir.sharif.vamdeh.webservices.webservices.loan_request.delete_my_loan_request.DeleteMyLoanResponse;
@@ -135,12 +134,6 @@ public class WebserviceHelper {
 
     public static AcceptLoanResponse acceptLoan(Context context, int loanID) throws IOException, WebserviceException {
         AcceptLoanProcess process = new AcceptLoanProcess(loanID);
-        return process.process();
-    }
-
-    public static CreateMyLoanResponse createMyLoan(int amount, int timeToReturnMoney, String status) throws IOException, WebserviceException {
-        CreateMyLoanProcess process = new CreateMyLoanProcess(amount, timeToReturnMoney, status);
-        Log.e("TAG", "Token:::" + WebservicePrefSetting.getInstanceWithoutContext().getToken());
         return process.process();
     }
 

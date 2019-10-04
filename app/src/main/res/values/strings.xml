@@ -13,6 +13,7 @@
     <string name="loanAmountLabel">میزان وام</string>
     <string name="paymentTime">مدت پرداخت</string>
     <string name="loanRequest">درخواست وام</string>
+    <string name="directLoan">وام مستقیم</string>
     <string name="monthlyPayment">میزان قسط ماهیانه</string>
     <string name="paymentAmount">۸۰ تومان</string>
     <string name="paymentDescription">توضیحات</string>

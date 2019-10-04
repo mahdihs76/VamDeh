@@ -12,7 +12,6 @@ class MyJobCreator : JobCreator {
         SendVerificationJob.TAG -> SendVerificationJob()
         RegisterJob.TAG -> RegisterJob()
         GetMyScoresJob.TAG-> GetMyScoresJob()
-        CreateMyLoanJob.TAG-> CreateMyLoanJob()
         LoginJob.TAG -> LoginJob()
         TrustRequestJob.TAG -> TrustRequestJob()
         GetTrustedListJob.TAG -> GetTrustedListJob()
